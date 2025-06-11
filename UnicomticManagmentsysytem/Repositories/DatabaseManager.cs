@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SQLite;
-using System.IO;
+using System.Windows.Forms;
 
 namespace UnicomticManagmentsysytem.Repositories
 {
@@ -21,23 +22,88 @@ namespace UnicomticManagmentsysytem.Repositories
                 }
                 Connection = new SQLiteConnection("Data Source=unicomtic.db;Version=3;");
                 Connection.Open();
+                //var pragmaCmd = new SQLiteCommand("PRAGMA foreign_keys = ON;", Connection);
+                //pragmaCmd.ExecuteNonQuery();
+
                 CreateTables();
+               /* catch(Exception ex)
+{
+                    MessageBox.Show("Database error: " + ex.Message);
+                }*/
+
             }
+
             return Connection;
         }
         private static void CreateTables()
         {
             var commands = new[]
             {
-                @"CREATE TABLE IF NOT EXISTS Users(UserID INTEGER PRIMARY KEY, Username TEXT, Password TEXT, Role TEXT);",
-                @"CREATE TABLE IF NOT EXISTS Courses(CourseID INTEGER PRIMARY KEY, CourseName TEXT);",
-                @"CREATE TABLE IF NOT EXISTS Subjects(SubjectID INTEGER PRIMARY KEY, SubjectName TEXT, CourseID INTEGER);",
-                @"CREATE TABLE IF NOT EXISTS Students(StudentID INTEGER PRIMARY KEY, Name TEXT, CourseID INTEGER);",
-                @"CREATE TABLE IF NOT EXISTS Exams(ExamID INTEGER PRIMARY KEY, ExamName TEXT, SubjectID INTEGER);",
-                @"CREATE TABLE IF NOT EXISTS Marks(MarkID INTEGER PRIMARY KEY, StudentID INTEGER, ExamID INTEGER, Score INTEGER);",
-                @"CREATE TABLE IF NOT EXISTS Rooms(RoomID INTEGER PRIMARY KEY, RoomName TEXT, RoomType TEXT);",
-                @"CREATE TABLE IF NOT EXISTS Timetables(TimetableID INTEGER PRIMARY KEY, SubjectID INTEGER, TimeSlot TEXT, RoomID INTEGER);"
-            };
+                @"CREATE TABLE IF NOT EXISTS Users
+                        (UserID INTEGER PRIMARY KEY AUTOINCREMENT
+                       , Username TEXT NOT NULL,
+                         Password TEXT NOT NULL, 
+                         Role TEXT NOT NULL);",
+
+                @"CREATE TABLE IF NOT EXISTS Courses
+                        (CourseID INTEGER PRIMARY KEY,
+                         CourseName TEXT NOT NULL);",
+
+                @"CREATE TABLE IF NOT EXISTS Admin
+                        (AdminID INTEGER PRIMARY KEY,
+                         AdminName TEXT NOT NULL);",
+
+
+                @"CREATE TABLE IF NOT EXISTS Staff
+                        (StaffID INTEGER PRIMARY KEY,
+                         StaffName TEXT NOT NULL);",
+
+                @"CREATE TABLE IF NOT EXISTS SubjectID
+                         (SubjectID INTEGER PRIMARY KEY, 
+                          SubjectName TEXT NOT NULL,
+                          CourseID INTEGER,
+                          FOREIGN KEY (CourseID)  REFERENCES Courses (CourseID));",
+
+                @"CREATE TABLE IF NOT EXISTS Students
+                         (StudentID INTEGER PRIMARY KEY,
+                         StudentName TEXT NOT NULL, 
+                         CourseID INTEGER,
+                         FOREIGN KEY (CourseID) REFERENCES Courses (CourseID));",
+
+                @"CREATE TABLE IF NOT EXISTS Lecturers
+                         (LecturerID INTEGER PRIMARY KEY,
+                         LecturerName TEXT NOT NULL, 
+                         SubjectID INTEGER,
+                         FOREIGN KEY (SubjectID) REFERENCES Subjects (SubjectID));",
+             
+
+                @"CREATE TABLE IF NOT EXISTS Exams
+                         (ExamID INTEGER PRIMARY KEY,
+                          ExamName TEXT NOT NULL ,
+                          SubjectID INTEGER,
+                          FOREIGN KEY (SubjectID)  REFERENCES Subjects (SubjectID) );",
+
+                @"CREATE TABLE IF NOT EXISTS Marks
+                         (MarkID INTEGER PRIMARY KEY, 
+                          StudentID INTEGER, 
+                          ExamID INTEGER, 
+                          Score INTEGER, 
+                          FOREIGN KEY (StudentId)  REFERENCES Students (StudentId),
+                          FOREIGN KEY (ExamID)  REFERENCES Exams (ExamID));",
+
+                @"CREATE TABLE IF NOT EXISTS Rooms
+                         (RoomID INTEGER PRIMARY KEY, RoomName TEXT NOT NULL, RoomType TEXT NOT NULL);",
+
+                @"CREATE TABLE IF NOT EXISTS Timetables
+                         (TimetableID INTEGER PRIMARY KEY, 
+                          SubjectID INTEGER, 
+                          TimeSlot TEXT NOT NULL,
+                          RoomID INTEGER,
+                          FOREIGN KEY (SubjectID)  REFERENCES Subjects (SubjectID), 
+                          FOREIGN KEY (RoomID)  REFERENCES Rooms (RoomID));",
+            
+             
+        };
 
             foreach (var commandText in commands)
             {

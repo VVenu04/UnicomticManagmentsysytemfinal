@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace UnicomticManagmentsysytem.Models
 {
-    internal class Mark
+    internal class Exams
     {
+        public int ExamID { get; set; }
+        public string ExamName { get; set; }
+            public int SujectID { get; set; }
     }
 }

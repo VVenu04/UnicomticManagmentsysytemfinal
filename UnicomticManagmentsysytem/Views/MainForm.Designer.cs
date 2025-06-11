@@ -28,13 +28,123 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnlogout = new System.Windows.Forms.Button();
+            this.btnExams = new System.Windows.Forms.Button();
+            this.btnMarks = new System.Windows.Forms.Button();
+            this.btnTimetable = new System.Windows.Forms.Button();
+            this.btnaddusers = new System.Windows.Forms.Button();
+            this.panel = new System.Windows.Forms.Panel();
+            this.panel2.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Location = new System.Drawing.Point(111, 8);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(49, 13);
+            this.lblWelcome.TabIndex = 0;
+            this.lblWelcome.Text = "welcome";
+            this.lblWelcome.Click += new System.EventHandler(this.lblWelcome_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.btnlogout);
+            this.panel2.Controls.Add(this.lblWelcome);
+            this.panel2.Controls.Add(this.btnExams);
+            this.panel2.Controls.Add(this.btnMarks);
+            this.panel2.Controls.Add(this.btnTimetable);
+            this.panel2.Controls.Add(this.btnaddusers);
+            this.panel2.Location = new System.Drawing.Point(1, 1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(189, 542);
+            this.panel2.TabIndex = 14;
+            // 
+            // btnlogout
+            // 
+            this.btnlogout.Location = new System.Drawing.Point(40, 264);
+            this.btnlogout.Name = "btnlogout";
+            this.btnlogout.Size = new System.Drawing.Size(75, 23);
+            this.btnlogout.TabIndex = 17;
+            this.btnlogout.Text = "LOG OUT";
+            this.btnlogout.UseVisualStyleBackColor = true;
+            this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click_1);
+            // 
+            // btnExams
+            // 
+            this.btnExams.Location = new System.Drawing.Point(40, 204);
+            this.btnExams.Name = "btnExams";
+            this.btnExams.Size = new System.Drawing.Size(75, 23);
+            this.btnExams.TabIndex = 16;
+            this.btnExams.Text = "Exam";
+            this.btnExams.UseVisualStyleBackColor = true;
+            // 
+            // btnMarks
+            // 
+            this.btnMarks.Location = new System.Drawing.Point(40, 149);
+            this.btnMarks.Name = "btnMarks";
+            this.btnMarks.Size = new System.Drawing.Size(75, 23);
+            this.btnMarks.TabIndex = 15;
+            this.btnMarks.Text = "Marks";
+            this.btnMarks.UseVisualStyleBackColor = true;
+            // 
+            // btnTimetable
+            // 
+            this.btnTimetable.Location = new System.Drawing.Point(40, 84);
+            this.btnTimetable.Name = "btnTimetable";
+            this.btnTimetable.Size = new System.Drawing.Size(75, 23);
+            this.btnTimetable.TabIndex = 14;
+            this.btnTimetable.Text = "TimeTable";
+            this.btnTimetable.UseVisualStyleBackColor = true;
+            this.btnTimetable.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // btnaddusers
+            // 
+            this.btnaddusers.Location = new System.Drawing.Point(40, 32);
+            this.btnaddusers.Name = "btnaddusers";
+            this.btnaddusers.Size = new System.Drawing.Size(75, 23);
+            this.btnaddusers.TabIndex = 13;
+            this.btnaddusers.Text = "ADD USER";
+            this.btnaddusers.UseVisualStyleBackColor = true;
+            this.btnaddusers.Click += new System.EventHandler(this.btnaddusers_Click);
+            // 
+            // panel
+            // 
+            this.panel.Location = new System.Drawing.Point(187, 1);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(740, 542);
+            this.panel.TabIndex = 15;
+            this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ClientSize = new System.Drawing.Size(929, 543);
+            this.Controls.Add(this.panel);
+            this.Controls.Add(this.panel2);
+            this.Name = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnlogout;
+        private System.Windows.Forms.Button btnExams;
+        private System.Windows.Forms.Button btnMarks;
+        private System.Windows.Forms.Button btnTimetable;
+        private System.Windows.Forms.Button btnaddusers;
+        private System.Windows.Forms.Panel panel;
     }
 }
 
