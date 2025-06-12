@@ -11,11 +11,11 @@ namespace UnicomticManagmentsysytem.Controller
 {
     internal class UsersController
     {
-        public static bool AddUser(string username, string password, string role, out string error)
+        public static bool AddUser(string username, string password, string role, string fullName,int age,string address, out string error)
         {
             error = "";
 
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password)|| string.IsNullOrWhiteSpace(fullName) || string.IsNullOrWhiteSpace(address))
             {
                 error = "Username and password cannot be empty.";
                 return false;
@@ -38,7 +38,43 @@ namespace UnicomticManagmentsysytem.Controller
                     cmd.Parameters.AddWithValue("@role", role);
                     cmd.ExecuteNonQuery();
                 }
+                long userId = conn.LastInsertRowId;
 
+                // Insert into role-specific table
+                string insertProfileQuery = null;
+
+                if (role == "Student")
+                {
+                    insertProfileQuery = "INSERT INTO Students (FullName, Age, Address, UserID) VALUES (@fullName, @age, @address, @userId)";
+                }
+                else if (role == "Lecturer")
+                {
+                    insertProfileQuery = "INSERT INTO Lecturers (FullName, Age, Address, UserID) VALUES (@fullName, @age, @address, @userId)";
+                }
+                else if (role == "Staff")
+                {
+                    insertProfileQuery = "INSERT INTO Staff (FullName, Age, Address, UserID) VALUES (@fullName, @age, @address, @userId)";
+
+                }
+                else if (role == "Admin")
+                {
+                    insertProfileQuery = "INSERT INTO Admin (FullName, Age, Address, UserID) VALUES (@fullName, @age, @address, @userId)";
+                    if (insertProfileQuery != null)
+                    {
+
+                        using (var cmd = new SQLiteCommand(insertProfileQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@fullName", fullName);
+                            cmd.Parameters.AddWithValue("@age", age);
+                            cmd.Parameters.AddWithValue("@address", address);
+                            cmd.Parameters.AddWithValue("@userId", userId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        
+                    }
+                    
+                }
                 return true;
             }
             catch (Exception ex)
@@ -48,7 +84,7 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
-        // 🔍 Check if user exists by username
+        //  Check if user exists by username
         public static bool UserExists(string username)
         {
             var conn = DatabaseManager.GetConnection();
@@ -61,7 +97,7 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
-        // 📋 Get all users (for DataGridView)
+        //  Get all users for DataGridView
         public static DataTable GetAllUsers()
         {
             var conn = DatabaseManager.GetConnection();

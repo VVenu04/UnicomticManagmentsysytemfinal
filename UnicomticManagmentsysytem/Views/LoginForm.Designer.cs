@@ -75,7 +75,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(381, 32);
+            this.pictureBox2.Location = new System.Drawing.Point(427, 82);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(29, 405);
             this.pictureBox2.TabIndex = 4;
@@ -181,7 +181,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 30);
             this.button1.TabIndex = 8;
-            this.button1.Text = "LOGIN";
+            this.button1.Text = " LOGIN";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -192,7 +192,7 @@
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(38, 17);
             this.chkShowPassword.TabIndex = 21;
-            this.chkShowPassword.Text = "👁‍🗨";
+            this.chkShowPassword.Text = "👁";
             this.chkShowPassword.UseVisualStyleBackColor = true;
             this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
             // 

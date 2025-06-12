@@ -61,9 +61,12 @@ namespace UnicomticManagmentsysytem.Views
             string username = txtusername.Text.Trim();
             string password = txtpassword.Text.Trim();
             string role = cmbrole.SelectedItem.ToString();
+            string fullName = txtfname.Text.Trim();
+            int age = int.Parse(txtage.Text.Trim());
+            string address = txtaddress.Text.Trim();
 
             string error;
-            bool success = UsersController.AddUser(username, password, role, out error);
+            bool success = UsersController.AddUser(username, password, role, fullName, age, address,  out  error);
 
             if (success)
             {
@@ -71,6 +74,10 @@ namespace UnicomticManagmentsysytem.Views
                 LoadUsers();
                 txtusername.Clear();
                 txtpassword.Clear();
+                txtaddress.Clear();
+                txtage.Clear();
+                txtfname.Clear();
+
             }
             else
             {
@@ -112,6 +119,11 @@ namespace UnicomticManagmentsysytem.Views
         private void btnback_Click(object sender, EventArgs e)
         {
             this.Parent.Controls.Remove(this);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -22,8 +22,8 @@ namespace UnicomticManagmentsysytem.Repositories
                 }
                 Connection = new SQLiteConnection("Data Source=unicomtic.db;Version=3;");
                 Connection.Open();
-                //var pragmaCmd = new SQLiteCommand("PRAGMA foreign_keys = ON;", Connection);
-                //pragmaCmd.ExecuteNonQuery();
+                var pragmaCmd = new SQLiteCommand("PRAGMA foreign_keys = ON;", Connection);
+                pragmaCmd.ExecuteNonQuery();
 
                 CreateTables();
                /* catch(Exception ex)
@@ -50,30 +50,46 @@ namespace UnicomticManagmentsysytem.Repositories
                          CourseName TEXT NOT NULL);",
 
                 @"CREATE TABLE IF NOT EXISTS Admin
-                        (AdminID INTEGER PRIMARY KEY,
-                         AdminName TEXT NOT NULL);",
+                        (AdminID INTEGER PRIMARY KEY  AUTOINCREMENT,
+                         FullName TEXT NOT NULL, 
+                         Age INTEGER,
+                         Address TEXT ,  
+                         UserID INTEGER,
+                         FOREIGN KEY (UserID) REFERENCES Users(UserID)
+                                                       );",
 
 
                 @"CREATE TABLE IF NOT EXISTS Staff
-                        (StaffID INTEGER PRIMARY KEY,
-                         StaffName TEXT NOT NULL);",
+                        (StaffID INTEGER PRIMARY KEY AUTOINCREMENT,
+                         FullName TEXT NOT NULL, 
+                         Age INTEGER,
+                         Address TEXT ,  
+                         UserID INTEGER,
+                         FOREIGN KEY (UserID) REFERENCES Users(UserID));",
 
-                @"CREATE TABLE IF NOT EXISTS SubjectID
+
+                @"CREATE TABLE IF NOT EXISTS Subjects
                          (SubjectID INTEGER PRIMARY KEY, 
                           SubjectName TEXT NOT NULL,
                           CourseID INTEGER,
                           FOREIGN KEY (CourseID)  REFERENCES Courses (CourseID));",
 
                 @"CREATE TABLE IF NOT EXISTS Students
-                         (StudentID INTEGER PRIMARY KEY,
-                         StudentName TEXT NOT NULL, 
-                         CourseID INTEGER,
+                         (StudentID INTEGER PRIMARY KEY AUTOINCREMENT,
+                           FullName TEXT NOT NULL, 
+                            Age INTEGER,
+                            Address TEXT,
+                         CourseID INTEGER,UserID INTEGER,
+                         FOREIGN KEY (UserID) REFERENCES Users(UserID)
                          FOREIGN KEY (CourseID) REFERENCES Courses (CourseID));",
 
                 @"CREATE TABLE IF NOT EXISTS Lecturers
-                         (LecturerID INTEGER PRIMARY KEY,
-                         LecturerName TEXT NOT NULL, 
-                         SubjectID INTEGER,
+                         (LecturerID INTEGER PRIMARY KEY AUTOINCREMENT,
+                            FullnameName TEXT NOT NULL, 
+                            Age INTEGER,
+                            Address TEXT,
+                         SubjectID INTEGER,UserID INTEGER,
+                         FOREIGN KEY (UserID) REFERENCES Users(UserID)
                          FOREIGN KEY (SubjectID) REFERENCES Subjects (SubjectID));",
              
 

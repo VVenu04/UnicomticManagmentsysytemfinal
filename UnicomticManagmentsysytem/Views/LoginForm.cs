@@ -87,5 +87,10 @@ namespace UnicomticManagmentsysytem.Views
         {
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
