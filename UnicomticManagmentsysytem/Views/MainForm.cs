@@ -17,12 +17,14 @@ namespace UnicomticManagmentsysytem
     {
         private string _role;
         private string _username;
+        private int _userId;
 
-        public MainForm(string role, string username)
+        public MainForm(string role, string username,int userId)
         {
             InitializeComponent();
             _role = role;
             _username = username;
+            _userId = userId;
 
             lblWelcome.Text = $"Welcome {_role}: {_username}";
             ApplyRolePermissions();
@@ -32,8 +34,8 @@ namespace UnicomticManagmentsysytem
             // Example role handling
             if (_role == "Student")
             {
-                btnTimetable.Visible = true;
-                btnMarks.Visible = true;
+                btnaddusers.Visible = false;
+                btnExams.Visible = false;
             }
             else if (_role == "Lecturer")
             {
@@ -53,14 +55,14 @@ namespace UnicomticManagmentsysytem
                 btnMarks.Visible = true;
                 btnExams.Visible = true;
             }
-            else
-            {
-                // Hide all buttons for unknown roles
-                btnTimetable.Visible = false;
-                btnMarks.Visible = false;
-                btnaddusers.Visible = false;
-                btnExams.Visible = false;
-            }
+            //else
+            //{
+            //    // Hide all buttons for unknown roles
+            //    btnTimetable.Visible = false;
+            //    btnMarks.Visible = false;
+            //    btnaddusers.Visible = false;
+            //    btnExams.Visible = false;
+            //}
             
 
 
@@ -156,6 +158,12 @@ namespace UnicomticManagmentsysytem
                 loginForm.Show();
                 this.Close(); // Optionally close the main form
             }
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            ChangePassword changeForm = new ChangePassword(_userId);
+            LoadFormInpanel( changeForm);
         }
     }
 }

@@ -53,6 +53,7 @@
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(183, 20);
             this.txtusername.TabIndex = 0;
+            this.txtusername.TextChanged += new System.EventHandler(this.txtusername_TextChanged);
             // 
             // txtpassword
             // 
@@ -60,6 +61,8 @@
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.Size = new System.Drawing.Size(183, 20);
             this.txtpassword.TabIndex = 2;
+            this.txtpassword.Text = "password123";
+            this.txtpassword.TextChanged += new System.EventHandler(this.txtpassword_TextChanged);
             // 
             // cmbrole
             // 

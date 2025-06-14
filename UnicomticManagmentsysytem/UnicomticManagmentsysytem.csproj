@@ -74,6 +74,12 @@
     <Compile Include="Controller\UsersController.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Repositories\DatabaseManager.cs" />
+    <Compile Include="Views\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

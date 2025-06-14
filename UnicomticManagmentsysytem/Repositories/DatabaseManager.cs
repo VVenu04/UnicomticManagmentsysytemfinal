@@ -49,6 +49,13 @@ namespace UnicomticManagmentsysytem.Repositories
                         (CourseID INTEGER PRIMARY KEY,
                          CourseName TEXT NOT NULL);",
 
+                 @"CREATE TABLE IF NOT EXISTS Courses_Subject
+                        (CourseID INTEGER ,
+                        SubjectID INTEGER,
+                        PRIMARY KEY(CourseID,SubjectID),
+                        FOREIGN KEY (CourseID)  REFERENCES Courses (CourseID),
+                    FOREIGN KEY (SubjectID) REFERENCES Subjects (SubjectID));",
+
                 @"CREATE TABLE IF NOT EXISTS Admin
                         (AdminID INTEGER PRIMARY KEY  AUTOINCREMENT,
                          FullName TEXT NOT NULL, 

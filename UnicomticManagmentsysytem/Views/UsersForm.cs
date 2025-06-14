@@ -31,7 +31,7 @@ namespace UnicomticManagmentsysytem.Views
             }
             else if (_currentUserRole == "Admin")
             {
-                cmbrole.Items.AddRange(new string[] { "Admin", "Staff", "Student", "Lecturer" });
+                cmbrole.Items.AddRange(new string[] { "select the role","Admin", "Staff", "Student", "Lecturer" });
             }
 
             cmbrole.SelectedIndex = 0;
@@ -59,7 +59,7 @@ namespace UnicomticManagmentsysytem.Views
                 return;
             }
             string username = txtusername.Text.Trim();
-            string password = txtpassword.Text.Trim();
+            string password = "password@123"; // set default password
             string role = cmbrole.SelectedItem.ToString();
             string fullName = txtfname.Text.Trim();
             int age = int.Parse(txtage.Text.Trim());
@@ -70,10 +70,10 @@ namespace UnicomticManagmentsysytem.Views
 
             if (success)
             {
-                MessageBox.Show("User added.");
+                MessageBox.Show("User added.\nDefault password is: password@123");
                 LoadUsers();
                 txtusername.Clear();
-                txtpassword.Clear();
+                //txtpassword.Clear();
                 txtaddress.Clear();
                 txtage.Clear();
                 txtfname.Clear();
@@ -122,6 +122,16 @@ namespace UnicomticManagmentsysytem.Views
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtusername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtpassword_TextChanged(object sender, EventArgs e)
         {
 
         }

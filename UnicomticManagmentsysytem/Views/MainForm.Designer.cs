@@ -30,12 +30,14 @@
         {
             this.lblWelcome = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
             this.btnExams = new System.Windows.Forms.Button();
             this.btnMarks = new System.Windows.Forms.Button();
             this.btnTimetable = new System.Windows.Forms.Button();
             this.btnaddusers = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +54,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel2.Controls.Add(this.btnChangePassword);
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnlogout);
             this.panel2.Controls.Add(this.lblWelcome);
             this.panel2.Controls.Add(this.btnExams);
@@ -63,9 +67,18 @@
             this.panel2.Size = new System.Drawing.Size(189, 542);
             this.panel2.TabIndex = 14;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(40, 255);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Courses";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // btnlogout
             // 
-            this.btnlogout.Location = new System.Drawing.Point(40, 264);
+            this.btnlogout.Location = new System.Drawing.Point(40, 366);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(75, 23);
             this.btnlogout.TabIndex = 17;
@@ -103,6 +116,7 @@
             // 
             // btnaddusers
             // 
+            this.btnaddusers.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnaddusers.Location = new System.Drawing.Point(40, 32);
             this.btnaddusers.Name = "btnaddusers";
             this.btnaddusers.Size = new System.Drawing.Size(75, 23);
@@ -119,6 +133,16 @@
             this.panel.Size = new System.Drawing.Size(766, 542);
             this.panel.TabIndex = 15;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Location = new System.Drawing.Point(40, 304);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(75, 43);
+            this.btnChangePassword.TabIndex = 19;
+            this.btnChangePassword.Text = "Change password";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // MainForm
             // 
@@ -146,6 +170,8 @@
         private System.Windows.Forms.Button btnTimetable;
         private System.Windows.Forms.Button btnaddusers;
         private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnChangePassword;
     }
 }
 

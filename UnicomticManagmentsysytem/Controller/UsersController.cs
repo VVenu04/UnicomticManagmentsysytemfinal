@@ -24,7 +24,7 @@ namespace UnicomticManagmentsysytem.Controller
             if (UserExists(username))
             {
                 error = "Username already exists.";
-                return false;
+               return false;
             }
 
             try

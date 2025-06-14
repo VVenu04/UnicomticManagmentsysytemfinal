@@ -62,7 +62,7 @@ namespace UnicomticManagmentsysytem.Views
                 MessageBox.Show("Login successful!");
 
                 this.Hide();
-                MainForm mainForm = new MainForm(user.Role, user.Username);
+                MainForm mainForm = new MainForm(user.Role, user.Username,user.UserID);
                 mainForm.ShowDialog();
                 this.Close();
             }
@@ -89,6 +89,11 @@ namespace UnicomticManagmentsysytem.Views
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
         {
 
         }
