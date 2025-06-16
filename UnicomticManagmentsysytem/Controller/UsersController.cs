@@ -59,6 +59,7 @@ namespace UnicomticManagmentsysytem.Controller
                 else if (role == "Admin")
                 {
                     insertProfileQuery = "INSERT INTO Admin (FullName, Age, Address, UserID) VALUES (@fullName, @age, @address, @userId)";
+                }
                     if (insertProfileQuery != null)
                     {
 
@@ -74,7 +75,7 @@ namespace UnicomticManagmentsysytem.Controller
                         
                     }
                     
-                }
+                
                 return true;
             }
             catch (Exception ex)

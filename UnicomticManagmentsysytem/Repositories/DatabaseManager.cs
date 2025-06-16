@@ -46,7 +46,7 @@ namespace UnicomticManagmentsysytem.Repositories
                          Role TEXT NOT NULL);",
 
                 @"CREATE TABLE IF NOT EXISTS Courses
-                        (CourseID INTEGER PRIMARY KEY,
+                        (CourseID INTEGER PRIMARY KEY AUTOINCREMENT,
                          CourseName TEXT NOT NULL);",
 
                  @"CREATE TABLE IF NOT EXISTS Courses_Subject
@@ -76,7 +76,7 @@ namespace UnicomticManagmentsysytem.Repositories
 
 
                 @"CREATE TABLE IF NOT EXISTS Subjects
-                         (SubjectID INTEGER PRIMARY KEY, 
+                         (SubjectID INTEGER PRIMARY KEY AUTOINCREMENT, 
                           SubjectName TEXT NOT NULL,
                           CourseID INTEGER,
                           FOREIGN KEY (CourseID)  REFERENCES Courses (CourseID));",
@@ -87,7 +87,7 @@ namespace UnicomticManagmentsysytem.Repositories
                             Age INTEGER,
                             Address TEXT,
                          CourseID INTEGER,UserID INTEGER,
-                         FOREIGN KEY (UserID) REFERENCES Users(UserID)
+                         FOREIGN KEY (UserID) REFERENCES Users(UserID),
                          FOREIGN KEY (CourseID) REFERENCES Courses (CourseID));",
 
                 @"CREATE TABLE IF NOT EXISTS Lecturers
@@ -98,16 +98,16 @@ namespace UnicomticManagmentsysytem.Repositories
                          SubjectID INTEGER,UserID INTEGER,
                          FOREIGN KEY (UserID) REFERENCES Users(UserID)
                          FOREIGN KEY (SubjectID) REFERENCES Subjects (SubjectID));",
-             
+
 
                 @"CREATE TABLE IF NOT EXISTS Exams
-                         (ExamID INTEGER PRIMARY KEY,
+                         (ExamID INTEGER PRIMARY KEY AUTOINCREMENT,
                           ExamName TEXT NOT NULL ,
                           SubjectID INTEGER,
                           FOREIGN KEY (SubjectID)  REFERENCES Subjects (SubjectID) );",
 
                 @"CREATE TABLE IF NOT EXISTS Marks
-                         (MarkID INTEGER PRIMARY KEY, 
+                         (MarkID INTEGER PRIMARY KEY AUTOINCREMENT, 
                           StudentID INTEGER, 
                           ExamID INTEGER, 
                           Score INTEGER, 
@@ -115,7 +115,7 @@ namespace UnicomticManagmentsysytem.Repositories
                           FOREIGN KEY (ExamID)  REFERENCES Exams (ExamID));",
 
                 @"CREATE TABLE IF NOT EXISTS Rooms
-                         (RoomID INTEGER PRIMARY KEY, RoomName TEXT NOT NULL, RoomType TEXT NOT NULL);",
+                         (RoomID INTEGER PRIMARY KEY AUTOINCREMENT, RoomName TEXT NOT NULL, RoomType TEXT NOT NULL);",
 
                 @"CREATE TABLE IF NOT EXISTS Timetables
                          (TimetableID INTEGER PRIMARY KEY, 

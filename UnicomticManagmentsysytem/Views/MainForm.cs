@@ -165,5 +165,10 @@ namespace UnicomticManagmentsysytem
             ChangePassword changeForm = new ChangePassword(_userId);
             LoadFormInpanel( changeForm);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadFormInpanel(new CourseForm());
+        }
     }
 }

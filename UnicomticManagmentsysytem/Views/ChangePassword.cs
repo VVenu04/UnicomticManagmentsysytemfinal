@@ -80,14 +80,14 @@ namespace UnicomticManagmentsysytem.Views
 
             MessageBox.Show("Password changed successfully!");
             this.Hide();
-            new LoginForm().Show();
+            //new LoginForm().Show();
         }
 
         private void txtoldpass_TextChanged(object sender, EventArgs e)
         {
 
         }
-    }
+    } 
 }
     
 

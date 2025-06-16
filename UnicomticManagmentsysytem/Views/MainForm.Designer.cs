@@ -30,6 +30,7 @@
         {
             this.lblWelcome = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
             this.btnExams = new System.Windows.Forms.Button();
@@ -37,14 +38,13 @@
             this.btnTimetable = new System.Windows.Forms.Button();
             this.btnaddusers = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
-            this.btnChangePassword = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Location = new System.Drawing.Point(111, 8);
+            this.lblWelcome.Location = new System.Drawing.Point(49, 8);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(49, 13);
             this.lblWelcome.TabIndex = 0;
@@ -54,10 +54,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel2.Controls.Add(this.lblWelcome);
             this.panel2.Controls.Add(this.btnChangePassword);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnlogout);
-            this.panel2.Controls.Add(this.lblWelcome);
             this.panel2.Controls.Add(this.btnExams);
             this.panel2.Controls.Add(this.btnMarks);
             this.panel2.Controls.Add(this.btnTimetable);
@@ -67,6 +67,16 @@
             this.panel2.Size = new System.Drawing.Size(189, 542);
             this.panel2.TabIndex = 14;
             // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Location = new System.Drawing.Point(40, 304);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(75, 43);
+            this.btnChangePassword.TabIndex = 19;
+            this.btnChangePassword.Text = "Change password";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.button2_Click_2);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(40, 255);
@@ -75,6 +85,7 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "Courses";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnlogout
             // 
@@ -134,22 +145,13 @@
             this.panel.TabIndex = 15;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
-            // btnChangePassword
-            // 
-            this.btnChangePassword.Location = new System.Drawing.Point(40, 304);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(75, 43);
-            this.btnChangePassword.TabIndex = 19;
-            this.btnChangePassword.Text = "Change password";
-            this.btnChangePassword.UseVisualStyleBackColor = true;
-            this.btnChangePassword.Click += new System.EventHandler(this.button2_Click_2);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(954, 543);
+            this.ControlBox = false;
             this.Controls.Add(this.panel);
             this.Controls.Add(this.panel2);
             this.Name = "MainForm";
