@@ -72,7 +72,6 @@
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\TimetableController.cs" />
     <Compile Include="Controller\UsersController.cs" />
-    <Compile Include="Models\Users.cs" />
     <Compile Include="Repositories\DatabaseManager.cs" />
     <Compile Include="Views\ChangePassword.cs">
       <SubType>Form</SubType>

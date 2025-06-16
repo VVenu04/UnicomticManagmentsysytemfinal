@@ -36,6 +36,7 @@ namespace UnicomticManagmentsysytem
             {
                 btnaddusers.Visible = false;
                 btnExams.Visible = false;
+                button1.Visible = false;
             }
             else if (_role == "Lecturer")
             {
@@ -153,10 +154,10 @@ namespace UnicomticManagmentsysytem
 
             if (result == DialogResult.Yes)
             {
-                this.Hide(); // Hide the dashboard
+                this.Hide(); // Hide  dashboard
                 LoginForm loginForm = new LoginForm(); // Return to login
                 loginForm.Show();
-                this.Close(); // Optionally close the main form
+                this.Close(); //  close  main form
             }
         }
 
@@ -169,6 +170,11 @@ namespace UnicomticManagmentsysytem
         private void button1_Click(object sender, EventArgs e)
         {
             LoadFormInpanel(new CourseForm());
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -66,20 +66,21 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(189, 542);
             this.panel2.TabIndex = 14;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnChangePassword
             // 
-            this.btnChangePassword.Location = new System.Drawing.Point(40, 304);
+            this.btnChangePassword.Location = new System.Drawing.Point(22, 476);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(75, 43);
+            this.btnChangePassword.Size = new System.Drawing.Size(140, 25);
             this.btnChangePassword.TabIndex = 19;
-            this.btnChangePassword.Text = "Change password";
+            this.btnChangePassword.Text = "CHANGED PASSWORD";
             this.btnChangePassword.UseVisualStyleBackColor = true;
             this.btnChangePassword.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(40, 255);
+            this.button1.Location = new System.Drawing.Point(40, 152);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
@@ -89,9 +90,9 @@
             // 
             // btnlogout
             // 
-            this.btnlogout.Location = new System.Drawing.Point(40, 366);
+            this.btnlogout.Location = new System.Drawing.Point(22, 507);
             this.btnlogout.Name = "btnlogout";
-            this.btnlogout.Size = new System.Drawing.Size(75, 23);
+            this.btnlogout.Size = new System.Drawing.Size(140, 23);
             this.btnlogout.TabIndex = 17;
             this.btnlogout.Text = "LOG OUT";
             this.btnlogout.UseVisualStyleBackColor = true;
@@ -99,7 +100,7 @@
             // 
             // btnExams
             // 
-            this.btnExams.Location = new System.Drawing.Point(40, 204);
+            this.btnExams.Location = new System.Drawing.Point(40, 123);
             this.btnExams.Name = "btnExams";
             this.btnExams.Size = new System.Drawing.Size(75, 23);
             this.btnExams.TabIndex = 16;
@@ -108,7 +109,7 @@
             // 
             // btnMarks
             // 
-            this.btnMarks.Location = new System.Drawing.Point(40, 149);
+            this.btnMarks.Location = new System.Drawing.Point(40, 84);
             this.btnMarks.Name = "btnMarks";
             this.btnMarks.Size = new System.Drawing.Size(75, 23);
             this.btnMarks.TabIndex = 15;
@@ -117,7 +118,7 @@
             // 
             // btnTimetable
             // 
-            this.btnTimetable.Location = new System.Drawing.Point(40, 84);
+            this.btnTimetable.Location = new System.Drawing.Point(40, 55);
             this.btnTimetable.Name = "btnTimetable";
             this.btnTimetable.Size = new System.Drawing.Size(75, 23);
             this.btnTimetable.TabIndex = 14;
@@ -128,9 +129,9 @@
             // btnaddusers
             // 
             this.btnaddusers.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnaddusers.Location = new System.Drawing.Point(40, 32);
+            this.btnaddusers.Location = new System.Drawing.Point(23, 447);
             this.btnaddusers.Name = "btnaddusers";
-            this.btnaddusers.Size = new System.Drawing.Size(75, 23);
+            this.btnaddusers.Size = new System.Drawing.Size(139, 23);
             this.btnaddusers.TabIndex = 13;
             this.btnaddusers.Text = "ADD USER";
             this.btnaddusers.UseVisualStyleBackColor = true;

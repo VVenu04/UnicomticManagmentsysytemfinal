@@ -38,6 +38,7 @@
             this.btnup = new System.Windows.Forms.Button();
             this.cmbcourse = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnback = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvco)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,9 +83,12 @@
             this.btndel.TabIndex = 20;
             this.btndel.Text = "DELETE";
             this.btndel.UseVisualStyleBackColor = true;
+            this.btndel.Click += new System.EventHandler(this.btndel_Click);
             // 
             // btnadd
             // 
+            this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnadd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnadd.Location = new System.Drawing.Point(159, 184);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(75, 23);
@@ -109,6 +113,7 @@
             this.btnup.TabIndex = 22;
             this.btnup.Text = "UPDATE";
             this.btnup.UseVisualStyleBackColor = true;
+            this.btnup.Click += new System.EventHandler(this.btnup_Click);
             // 
             // cmbcourse
             // 
@@ -129,12 +134,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnback
+            // 
+            this.btnback.Location = new System.Drawing.Point(12, 12);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(75, 23);
+            this.btnback.TabIndex = 26;
+            this.btnback.Text = "⬅️ BACK\r\n\r\n\r\n";
+            this.btnback.UseVisualStyleBackColor = true;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            // 
             // CourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnback);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbcourse);
             this.Controls.Add(this.btnup);
@@ -147,6 +163,7 @@
             this.Controls.Add(this.txtsub);
             this.Name = "CourseForm";
             this.Text = "CourseForm";
+            this.Load += new System.EventHandler(this.CourseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvco)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,5 +181,6 @@
         private System.Windows.Forms.TextBox txtsub;
         private System.Windows.Forms.ComboBox cmbcourse;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnback;
     }
 }

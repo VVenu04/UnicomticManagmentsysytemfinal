@@ -8,36 +8,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UnicomticManagmentsysytem.Controller;
 using UnicomticManagmentsysytem.Repositories;
 
 namespace UnicomticManagmentsysytem.Views
 {
     public partial class CourseForm : Form
     {
-
-        private void LoadCourseDropdown()
-        {
-            var conn = DatabaseManager.GetConnection();
-            string query = "SELECT CourseID, CourseName FROM Courses";
-
-            using (var adapter = new SQLiteDataAdapter(query, conn))
-            {
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-
-                cmbcourse.DataSource = dt;
-                cmbcourse.DisplayMember = "CourseName";
-                cmbcourse.ValueMember = "CourseID";
-            }
-        }
+        private CourseController controller = new CourseController();
 
         public CourseForm()
         {
             InitializeComponent();
-            LoadCoursesWithSubjects();
-            LoadCourseDropdown();
+            dgvco.CellClick += dgvco_CellClick;
+            LoadCourses();
+            LoadDropdown();
+        }
+        private void LoadCourses()
+        {
+            dgvco.DataSource = controller.GetCoursesWithSubjects();
+
+            // ✅ Ensure SubjectID exists and hide it
+            if (dgvco.Columns.Contains("SubjectID"))
+            {
+                dgvco.Columns["SubjectID"].Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("SubjectID column missing in grid.");
+            }
+        }
+        private void LoadDropdown()
+        {
+            cmbcourse.DataSource = controller.GetAllCourses();
+            cmbcourse.DisplayMember = "CourseName";
+            cmbcourse.ValueMember = "CourseID";
         }
 
+        private void LoadCourseDropdown()
+        {
+           
+        }
+
+       
         private void lblcourse_Click(object sender, EventArgs e)
         {
 
@@ -52,151 +65,169 @@ namespace UnicomticManagmentsysytem.Views
         {
             
         }
-        private void LoadCoursesWithSubjects()
-        {
-            var conn = DatabaseManager.GetConnection();
+        //private void LoadCoursesWithSubjects()
+        //{
+        //    var conn = DatabaseManager.GetConnection();
 
-            string query = @"
-        SELECT 
+        //    string query = @"
+        //SELECT 
             
-            c.CourseName,
+        //    c.CourseName,
             
-            s.SubjectName
-        FROM 
-        Courses_Subject cs
-        JOIN Courses c ON cs.CourseID = c.CourseID
-        JOIN Subjects s ON cs.SubjectID = s.SubjectID
-        ORDER BY c.CourseName, s.SubjectName";
+        //    s.SubjectName
+        //FROM 
+        //Courses_Subject cs
+        //JOIN Courses c ON cs.CourseID = c.CourseID
+        //JOIN Subjects s ON cs.SubjectID = s.SubjectID
+        //ORDER BY c.CourseName, s.SubjectName";
 
-            using (var adapter = new SQLiteDataAdapter(query, conn))
-            {
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dgvco.DataSource = dt;
-            }
-        }
+        //    using (var adapter = new SQLiteDataAdapter(query, conn))
+        //    {
+        //        DataTable dt = new DataTable();
+        //        adapter.Fill(dt);
+        //        dgvco.DataSource = dt;
+        //    }
+        //}
 
         private void btnadd_Click(object sender, EventArgs e)
         {
             string courseName = txtCourseName.Text.Trim();
             string subjectName = txtsub.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(courseName))
+            if (string.IsNullOrWhiteSpace(courseName) || string.IsNullOrWhiteSpace(subjectName))
             {
-                MessageBox.Show("Enter a course name.");
+                MessageBox.Show("Enter both Course and Subject");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(subjectName))
-            {
-                MessageBox.Show("Enter a subject name.");
-                return;
-            }
-
-            var conn = DatabaseManager.GetConnection();
 
             try
             {
-                // 1. Insert course
-                string insertCourse = "INSERT INTO Courses (CourseName) VALUES (@cname)";
-                long courseId;
-                using (var cmd = new SQLiteCommand(insertCourse, conn))
-                {
-                    cmd.Parameters.AddWithValue("@cname", courseName);
-                    cmd.ExecuteNonQuery();
-                    courseId = conn.LastInsertRowId;
-                }
-
-                // 2. Insert subject
-                string insertSubject = "INSERT INTO Subjects (SubjectName, CourseID) VALUES (@sname, @cid)";
-                long subjectId;
-                using (var cmd = new SQLiteCommand(insertSubject, conn))
-                {
-                    cmd.Parameters.AddWithValue("@sname", subjectName);
-                    cmd.Parameters.AddWithValue("@cid", courseId);
-                    cmd.ExecuteNonQuery();
-                    subjectId = conn.LastInsertRowId;
-                }
-
-                // 3. Link course + subject
-                string insertLink = "INSERT INTO Courses_Subject (CourseID, SubjectID) VALUES (@cid, @sid)";
-                using (var cmd = new SQLiteCommand(insertLink, conn))
-                {
-                    cmd.Parameters.AddWithValue("@cid", courseId);
-                    cmd.Parameters.AddWithValue("@sid", subjectId);
-                    cmd.ExecuteNonQuery();
-                }
-
-                MessageBox.Show("Course and Subject added successfully.");
+                controller.AddCourseWithSubject(courseName, subjectName);
+                MessageBox.Show("Added successfully.");
                 txtCourseName.Clear();
                 txtsub.Clear();
-                LoadCoursesWithSubjects(); // Refresh table
+                LoadCourses();
+                LoadDropdown();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
 
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string subjectName = txtsub.Text.Trim();
-
-            if (cmbcourse.SelectedIndex == -1)
+            if (cmbcourse.SelectedIndex == -1 || string.IsNullOrWhiteSpace(subjectName))
             {
-                MessageBox.Show("Please select a course.");
+                MessageBox.Show("Select a course and enter subject name.");
                 return;
             }
-
-            if (string.IsNullOrWhiteSpace(subjectName))
-            {
-                MessageBox.Show("Enter a subject name.");
-                return;
-            }
-
-            int courseId = Convert.ToInt32(cmbcourse.SelectedValue);
-            var conn = DatabaseManager.GetConnection();
 
             try
             {
-                // Optional: check for duplicate subject name under this course
-                string checkQuery = "SELECT COUNT(*) FROM Subjects WHERE SubjectName = @sname AND CourseID = @cid";
-                using (var checkCmd = new SQLiteCommand(checkQuery, conn))
+                long courseId = Convert.ToInt64(cmbcourse.SelectedValue);
+                long subjectId = controller.AddSubject(subjectName, courseId);
+                controller.LinkSubjectToCourse(courseId, subjectId);
+                MessageBox.Show("Subject added.");
+                txtsub.Clear();
+                LoadCourses();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+    
+
+        private void btndel_Click(object sender, EventArgs e)
+        {
+            if (selectedSubjectId == -1)
+            {
+                MessageBox.Show("Select a subject to delete.");
+                return;
+            }
+
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
                 {
-                    checkCmd.Parameters.AddWithValue("@sname", subjectName);
-                    checkCmd.Parameters.AddWithValue("@cid", courseId);
-                    long count = (long)checkCmd.ExecuteScalar();
-                    if (count > 0)
+                    controller.DeleteSubject(selectedSubjectId);
+                    MessageBox.Show("Subject deleted.");
+                    selectedSubjectId = -1;
+                    txtsub.Clear();
+                    LoadCourses();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void CourseForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Remove(this);
+        }
+        private long selectedSubjectId = -1;
+
+        private void dgvco_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvco.Rows[e.RowIndex];
+                txtCourseName.Text = row.Cells["CourseName"].Value.ToString();
+                txtsub.Text = row.Cells["SubjectName"].Value.ToString();
+
+                try
+                {
+                    var val = row.Cells["SubjectID"].Value;
+                    if (val != null)
                     {
-                        MessageBox.Show("This subject already exists for the selected course.");
-                        return;
+                        selectedSubjectId = Convert.ToInt64(val);
+                        Console.WriteLine("Selected SubjectID: " + selectedSubjectId);
+                    }
+                    else
+                    {
+                        selectedSubjectId = -1;
+                        MessageBox.Show("SubjectID is null.");
                     }
                 }
-
-                // 1. Insert subject WITH CourseID
-                string insertSubject = "INSERT INTO Subjects (SubjectName, CourseID) VALUES (@sname, @cid)";
-                long subjectId;
-                using (var cmd = new SQLiteCommand(insertSubject, conn))
+                catch (Exception ex)
                 {
-                    cmd.Parameters.AddWithValue("@sname", subjectName);
-                    cmd.Parameters.AddWithValue("@cid", courseId);
-                    cmd.ExecuteNonQuery();
-                    subjectId = conn.LastInsertRowId;
+                    MessageBox.Show("Failed to get SubjectID: " + ex.Message);
                 }
+            }
+        }
 
-                // 2. Link subject to course in Courses_Subject
-                string insertLink = "INSERT INTO Courses_Subject (CourseID, SubjectID) VALUES (@cid, @sid)";
-                using (var cmd = new SQLiteCommand(insertLink, conn))
-                {
-                    cmd.Parameters.AddWithValue("@cid", courseId);
-                    cmd.Parameters.AddWithValue("@sid", subjectId);
-                    cmd.ExecuteNonQuery();
-                }
+        private void btnup_Click(object sender, EventArgs e)
+        {
+            if (selectedSubjectId == -1)
+            {
+                MessageBox.Show("Select a subject to update.");
+                return;
+            }
 
-                MessageBox.Show("Subject added to existing course.");
+            string newName = txtsub.Text.Trim();
+            if (string.IsNullOrWhiteSpace(newName))
+            {
+                MessageBox.Show("Subject name cannot be empty.");
+                return;
+            }
+
+            try
+            {
+                controller.UpdateSubject(selectedSubjectId, newName);  // ✅ CALL TO CONTROLLER
+                MessageBox.Show("Subject updated.");
+                selectedSubjectId = -1;
                 txtsub.Clear();
-                LoadCoursesWithSubjects();
+                LoadCourses();
             }
             catch (Exception ex)
             {
