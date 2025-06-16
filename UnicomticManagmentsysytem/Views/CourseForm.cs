@@ -107,11 +107,12 @@ namespace UnicomticManagmentsysytem.Views
                 }
 
                 // 2. Insert subject
-                string insertSubject = "INSERT INTO Subjects (SubjectName) VALUES (@sname)";
+                string insertSubject = "INSERT INTO Subjects (SubjectName, CourseID) VALUES (@sname, @cid)";
                 long subjectId;
                 using (var cmd = new SQLiteCommand(insertSubject, conn))
                 {
                     cmd.Parameters.AddWithValue("@sname", subjectName);
+                    cmd.Parameters.AddWithValue("@cid", courseId);
                     cmd.ExecuteNonQuery();
                     subjectId = conn.LastInsertRowId;
                 }
@@ -136,6 +137,71 @@ namespace UnicomticManagmentsysytem.Views
             }
 
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string subjectName = txtsub.Text.Trim();
+
+            if (cmbcourse.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a course.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(subjectName))
+            {
+                MessageBox.Show("Enter a subject name.");
+                return;
+            }
+
+            int courseId = Convert.ToInt32(cmbcourse.SelectedValue);
+            var conn = DatabaseManager.GetConnection();
+
+            try
+            {
+                // Optional: check for duplicate subject name under this course
+                string checkQuery = "SELECT COUNT(*) FROM Subjects WHERE SubjectName = @sname AND CourseID = @cid";
+                using (var checkCmd = new SQLiteCommand(checkQuery, conn))
+                {
+                    checkCmd.Parameters.AddWithValue("@sname", subjectName);
+                    checkCmd.Parameters.AddWithValue("@cid", courseId);
+                    long count = (long)checkCmd.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("This subject already exists for the selected course.");
+                        return;
+                    }
+                }
+
+                // 1. Insert subject WITH CourseID
+                string insertSubject = "INSERT INTO Subjects (SubjectName, CourseID) VALUES (@sname, @cid)";
+                long subjectId;
+                using (var cmd = new SQLiteCommand(insertSubject, conn))
+                {
+                    cmd.Parameters.AddWithValue("@sname", subjectName);
+                    cmd.Parameters.AddWithValue("@cid", courseId);
+                    cmd.ExecuteNonQuery();
+                    subjectId = conn.LastInsertRowId;
+                }
+
+                // 2. Link subject to course in Courses_Subject
+                string insertLink = "INSERT INTO Courses_Subject (CourseID, SubjectID) VALUES (@cid, @sid)";
+                using (var cmd = new SQLiteCommand(insertLink, conn))
+                {
+                    cmd.Parameters.AddWithValue("@cid", courseId);
+                    cmd.Parameters.AddWithValue("@sid", subjectId);
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Subject added to existing course.");
+                txtsub.Clear();
+                LoadCoursesWithSubjects();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }
