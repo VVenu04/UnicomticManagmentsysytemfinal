@@ -28,7 +28,7 @@ namespace UnicomticManagmentsysytem.Views
         {
             dgvco.DataSource = controller.GetCoursesWithSubjects();
 
-            // ✅ Ensure SubjectID exists and hide it
+            // Ensure SubjectID exists and hide it
             if (dgvco.Columns.Contains("SubjectID"))
             {
                 dgvco.Columns["SubjectID"].Visible = false;

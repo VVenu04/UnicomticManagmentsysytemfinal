@@ -102,7 +102,7 @@
             this.dgvco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvco.Location = new System.Drawing.Point(124, 238);
             this.dgvco.Name = "dgvco";
-            this.dgvco.Size = new System.Drawing.Size(268, 155);
+            this.dgvco.Size = new System.Drawing.Size(336, 181);
             this.dgvco.TabIndex = 21;
             // 
             // btnup

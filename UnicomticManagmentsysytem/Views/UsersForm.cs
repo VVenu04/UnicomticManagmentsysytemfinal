@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UnicomticManagmentsysytem.Controller;
+using UnicomticManagmentsysytem.Repositories;
 
 namespace UnicomticManagmentsysytem.Views
 {
@@ -20,6 +22,20 @@ namespace UnicomticManagmentsysytem.Views
             _currentUserRole = currentUserRole;
             LoadRoleOptions();
             LoadUsers();
+        }
+        private void LoadSubjects()
+        {
+            var conn = DatabaseManager.GetConnection();
+            string query = "SELECT SubjectID, SubjectName FROM Subjects";
+            using (var cmd = new SQLiteCommand(query, conn))
+            using (var reader = cmd.ExecuteReader())
+            {
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                cmbSubjects.DataSource = dt;
+                cmbSubjects.DisplayMember = "SubjectName";
+                cmbSubjects.ValueMember = "SubjectID";
+            }
         }
         private void LoadRoleOptions()
         {
@@ -58,32 +74,65 @@ namespace UnicomticManagmentsysytem.Views
                 MessageBox.Show("Staff can only add Students or Lecturers.");
                 return;
             }
+
             string username = txtusername.Text.Trim();
             string password = "password@123"; // set default password
             string role = cmbrole.SelectedItem.ToString();
             string fullName = txtfname.Text.Trim();
-            int age = int.Parse(txtage.Text.Trim());
+
+            int age;
+            if (!int.TryParse(txtage.Text.Trim(), out age))
+            {
+                MessageBox.Show("Please enter a valid number for age.");
+                return;
+            }
+
             string address = txtaddress.Text.Trim();
+            string nic = txtNIC.Text.Trim();
+            string gender = rdbMalee.Checked ? "Male" : rdbFEMalee.Checked ? "Female" : "";
+            if (gender == "")
+            {
+                MessageBox.Show("Please select gender.");
+                return;
+            }
+            string className = txtclass.Text.Trim(); 
 
             string error;
-            bool success = UsersController.AddUser(username, password, role, fullName, age, address,  out  error);
+            bool success = UsersController.AddUser(username, password, role, fullName, age, address, nic, gender, className, out error);
 
             if (success)
             {
-                MessageBox.Show("User added.\nDefault password is: password@123");
+                long userId = UsersController.GetUserIdByUsername(username);
+                int subjectId = Convert.ToInt32(cmbSubjects.SelectedValue);
+
+                if (role == "Student")
+                {
+                    int studentId = UsersController.GetStudentIdByUserId(userId);
+                    UsersController.AssignSubjectToStudent(studentId, subjectId, out error);
+                }
+                else if (role == "Lecturer")
+                {
+                    int lecturerId = UsersController.GetLecturerIdByUserId(userId);
+                    UsersController.AssignSubjectToLecturer(lecturerId, subjectId, out error);
+                }
+
+                MessageBox.Show("User added. Default password is: password@123");
                 LoadUsers();
+
+                // Clear fields
                 txtusername.Clear();
-                //txtpassword.Clear();
                 txtaddress.Clear();
                 txtage.Clear();
                 txtfname.Clear();
-
+                txtNIC.Clear();
+                txtclass.Clear();
             }
             else
             {
                 MessageBox.Show("Error: " + error);
             }
         }
+        
 
         private void btndel_Click(object sender, EventArgs e)
         {
@@ -132,6 +181,31 @@ namespace UnicomticManagmentsysytem.Views
         }
 
         private void txtpassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbMalee_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbSubjects_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -57,22 +57,26 @@ namespace UnicomticManagmentsysytem.Repositories
                     FOREIGN KEY (SubjectID) REFERENCES Subjects (SubjectID));",
 
                 @"CREATE TABLE IF NOT EXISTS Admin
-                        (AdminID INTEGER PRIMARY KEY  AUTOINCREMENT,
-                         FullName TEXT NOT NULL, 
-                         Age INTEGER,
-                         Address TEXT ,  
-                         UserID INTEGER,
-                         FOREIGN KEY (UserID) REFERENCES Users(UserID)
+                        (AdminID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        FullName TEXT NOT NULL, 
+                        Age INTEGER,
+                        Address TEXT,
+                        NIC TEXT,
+                        Gender TEXT,
+                        UserID INTEGER,
+                        FOREIGN KEY (UserID) REFERENCES Users(UserID)
                                                        );",
 
 
                 @"CREATE TABLE IF NOT EXISTS Staff
                         (StaffID INTEGER PRIMARY KEY AUTOINCREMENT,
-                         FullName TEXT NOT NULL, 
-                         Age INTEGER,
-                         Address TEXT ,  
-                         UserID INTEGER,
-                         FOREIGN KEY (UserID) REFERENCES Users(UserID));",
+                        FullName TEXT NOT NULL, 
+                        Age INTEGER,
+                        Address TEXT,
+                        NIC TEXT,
+                        Gender TEXT,
+                        UserID INTEGER,
+                        FOREIGN KEY (UserID) REFERENCES Users(UserID));",
 
 
                 @"CREATE TABLE IF NOT EXISTS Subjects
@@ -82,22 +86,30 @@ namespace UnicomticManagmentsysytem.Repositories
                           FOREIGN KEY (CourseID)  REFERENCES Courses (CourseID));",
 
                 @"CREATE TABLE IF NOT EXISTS Students
-                         (StudentID INTEGER PRIMARY KEY AUTOINCREMENT,
-                           FullName TEXT NOT NULL, 
-                            Age INTEGER,
-                            Address TEXT,
-                         CourseID INTEGER,UserID INTEGER,
-                         FOREIGN KEY (UserID) REFERENCES Users(UserID),
-                         FOREIGN KEY (CourseID) REFERENCES Courses (CourseID));",
+                    (StudentID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    FullName TEXT NOT NULL, 
+                    Age INTEGER,
+                    Address TEXT,
+                    NIC TEXT,
+                    Gender TEXT,
+                    Class TEXT,
+                    CourseID INTEGER,
+                    UserID INTEGER,
+                    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+                    FOREIGN KEY (CourseID) REFERENCES Courses (CourseID));",
 
                 @"CREATE TABLE IF NOT EXISTS Lecturers
                          (LecturerID INTEGER PRIMARY KEY AUTOINCREMENT,
                             FullnameName TEXT NOT NULL, 
                             Age INTEGER,
                             Address TEXT,
-                         SubjectID INTEGER,UserID INTEGER,
-                         FOREIGN KEY (UserID) REFERENCES Users(UserID)
-                         FOREIGN KEY (SubjectID) REFERENCES Subjects (SubjectID));",
+                            NIC TEXT,
+                            Gender TEXT,
+                            Class TEXT,
+                            SubjectID INTEGER,
+                            UserID INTEGER,
+                            FOREIGN KEY (UserID) REFERENCES Users(UserID),
+                            FOREIGN KEY (SubjectID) REFERENCES Subjects (SubjectID));",
 
 
                 @"CREATE TABLE IF NOT EXISTS Exams
@@ -124,8 +136,22 @@ namespace UnicomticManagmentsysytem.Repositories
                           RoomID INTEGER,
                           FOREIGN KEY (SubjectID)  REFERENCES Subjects (SubjectID), 
                           FOREIGN KEY (RoomID)  REFERENCES Rooms (RoomID));",
-            
-             
+                 @"CREATE TABLE IF NOT EXISTS Student_Subject (
+                StudentID INTEGER,
+                SubjectID INTEGER,
+                PRIMARY KEY(StudentID, SubjectID),
+                FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+                FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
+            );",
+
+                @"CREATE TABLE IF NOT EXISTS Lecturer_Subject (
+                    LecturerID INTEGER,
+                    SubjectID INTEGER,
+                    PRIMARY KEY(LecturerID, SubjectID),
+                    FOREIGN KEY (LecturerID) REFERENCES Lecturers(LecturerID),
+                    FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
+                );"
+
         };
 
             foreach (var commandText in commands)

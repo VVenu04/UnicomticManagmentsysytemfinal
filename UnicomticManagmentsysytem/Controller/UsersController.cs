@@ -11,7 +11,7 @@ namespace UnicomticManagmentsysytem.Controller
 {
     internal class UsersController
     {
-        public static bool AddUser(string username, string password, string role, string fullName,int age,string address, out string error)
+        public static bool AddUser(string username, string password, string role, string fullName,int age,string address, string nic, string gender, string className, out string error)
         {
             error = "";
 
@@ -45,35 +45,42 @@ namespace UnicomticManagmentsysytem.Controller
 
                 if (role == "Student")
                 {
-                    insertProfileQuery = "INSERT INTO Students (FullName, Age, Address, UserID) VALUES (@fullName, @age, @address, @userId)";
+                    insertProfileQuery = "INSERT INTO Students (FullName, Age, Address, NIC, Gender, Class, UserID) " +
+                                         "VALUES (@fullName, @age, @address, @nic, @gender, @class, @userId)";
                 }
                 else if (role == "Lecturer")
                 {
-                    insertProfileQuery = "INSERT INTO Lecturers (FullName, Age, Address, UserID) VALUES (@fullName, @age, @address, @userId)";
-                }
-                else if (role == "Staff")
-                {
-                    insertProfileQuery = "INSERT INTO Staff (FullName, Age, Address, UserID) VALUES (@fullName, @age, @address, @userId)";
-
+                    insertProfileQuery = "INSERT INTO Lecturers (FullnameName, Age, Address, NIC, Gender, Class, UserID) " +
+                                         "VALUES (@fullName, @age, @address, @nic, @gender, @class, @userId)";
                 }
                 else if (role == "Admin")
                 {
-                    insertProfileQuery = "INSERT INTO Admin (FullName, Age, Address, UserID) VALUES (@fullName, @age, @address, @userId)";
+                    insertProfileQuery = "INSERT INTO Admin (FullName, Age, Address, NIC, Gender, UserID) " +
+                                         "VALUES (@fullName, @age, @address, @nic, @gender, @userId)";
                 }
-                    if (insertProfileQuery != null)
+                else if (role == "Staff")
+                {
+                    insertProfileQuery = "INSERT INTO Staff (FullName, Age, Address, NIC, Gender, UserID) " +
+                                         "VALUES (@fullName, @age, @address, @nic, @gender, @userId)";
+                }
+
+                if (insertProfileQuery != null)
                     {
 
                         using (var cmd = new SQLiteCommand(insertProfileQuery, conn))
                         {
-                            cmd.Parameters.AddWithValue("@fullName", fullName);
-                            cmd.Parameters.AddWithValue("@age", age);
-                            cmd.Parameters.AddWithValue("@address", address);
-                            cmd.Parameters.AddWithValue("@userId", userId);
-                            cmd.ExecuteNonQuery();
-                        }
+                        cmd.Parameters.AddWithValue("@fullName", fullName);
+                        cmd.Parameters.AddWithValue("@age", age);
+                        cmd.Parameters.AddWithValue("@address", address);
+                        cmd.Parameters.AddWithValue("@nic", nic);
+                        cmd.Parameters.AddWithValue("@gender", gender);
+                        cmd.Parameters.AddWithValue("@class", className);
+                        cmd.Parameters.AddWithValue("@userId", userId);
 
-                        
                     }
+
+
+                }
                     
                 
                 return true;
@@ -111,12 +118,95 @@ namespace UnicomticManagmentsysytem.Controller
                 return dt;
             }
         }
+
+        public static bool AssignSubjectToStudent(int studentId, int subjectId, out string error)
+        {
+            error = "";
+            try
+            {
+                var conn = DatabaseManager.GetConnection();
+                string query = "INSERT OR IGNORE INTO Student_Subject (StudentID, SubjectID) VALUES (@studentId, @subjectId)";
+                using (var cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@studentId", studentId);
+                    cmd.Parameters.AddWithValue("@subjectId", subjectId);
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return false;
+            }
+        }
+        public static int GetStudentIdByUserId(long userId)
+        {
+            var conn = DatabaseManager.GetConnection();
+            string query = "SELECT StudentID FROM Students WHERE UserID = @userId";
+            using (var cmd = new SQLiteCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@userId", userId);
+                var result = cmd.ExecuteScalar();
+                return result != null ? Convert.ToInt32(result) : -1;
+            }
+        }
+
+        public static int GetLecturerIdByUserId(long userId)
+        {
+            var conn = DatabaseManager.GetConnection();
+            string query = "SELECT LecturerID FROM Lecturers WHERE UserID = @userId";
+            using (var cmd = new SQLiteCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@userId", userId);
+                var result = cmd.ExecuteScalar();
+                return result != null ? Convert.ToInt32(result) : -1;
+            }
+        }
+
+        public static bool AssignSubjectToLecturer(int lecturerId, int subjectId, out string error)
+        {
+            error = "";
+            try
+            {
+                var conn = DatabaseManager.GetConnection();
+                string query = "INSERT OR IGNORE INTO Lecturer_Subject (LecturerID, SubjectID) VALUES (@lecturerId, @subjectId)";
+                using (var cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@lecturerId", lecturerId);
+                    cmd.Parameters.AddWithValue("@subjectId", subjectId);
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return false;
+            }
+        }
+
         public static bool DeleteUser(int userId, out string error)
         {
             error = "";
             try
             {
                 var conn = DatabaseManager.GetConnection();
+
+                // Delete from role-specific tables
+                string[] profileTables = { "Students", "Lecturers", "Staff", "Admin" };
+
+                foreach (string table in profileTables)
+                {
+                    string profileDelete = $"DELETE FROM {table} WHERE UserID = @userId";
+                    using (var cmd = new SQLiteCommand(profileDelete, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@userId", userId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                // Now delete from Users
                 string query = "DELETE FROM Users WHERE UserID = @userId";
                 using (var cmd = new SQLiteCommand(query, conn))
                 {
@@ -128,6 +218,7 @@ namespace UnicomticManagmentsysytem.Controller
                         return false;
                     }
                 }
+
                 return true;
             }
             catch (Exception ex)
