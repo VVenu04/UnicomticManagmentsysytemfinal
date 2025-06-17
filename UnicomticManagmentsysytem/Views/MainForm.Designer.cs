@@ -106,6 +106,7 @@
             this.btnExams.TabIndex = 16;
             this.btnExams.Text = "Exam";
             this.btnExams.UseVisualStyleBackColor = true;
+            this.btnExams.Click += new System.EventHandler(this.btnExams_Click_1);
             // 
             // btnMarks
             // 

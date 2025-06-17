@@ -176,5 +176,10 @@ namespace UnicomticManagmentsysytem
         {
 
         }
+
+        private void btnExams_Click_1(object sender, EventArgs e)
+        {
+            LoadFormInpanel(new ExamForm());
+        }
     }
 }

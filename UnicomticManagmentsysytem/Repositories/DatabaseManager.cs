@@ -116,6 +116,7 @@ namespace UnicomticManagmentsysytem.Repositories
                          (ExamID INTEGER PRIMARY KEY AUTOINCREMENT,
                           ExamName TEXT NOT NULL ,
                           SubjectID INTEGER,
+                          ExamDate TEXT,
                           FOREIGN KEY (SubjectID)  REFERENCES Subjects (SubjectID) );",
 
                 @"CREATE TABLE IF NOT EXISTS Marks
