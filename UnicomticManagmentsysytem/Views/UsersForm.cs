@@ -59,7 +59,7 @@ namespace UnicomticManagmentsysytem.Views
 
         private void UsersForm_Load(object sender, EventArgs e)
         {
-            
+            LoadSubjects();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -163,6 +163,7 @@ namespace UnicomticManagmentsysytem.Views
         private void btnalluser_Click(object sender, EventArgs e)
         {
             LoadUsers();
+            LoadCourses();
         }
 
         private void btnback_Click(object sender, EventArgs e)
@@ -208,6 +209,20 @@ namespace UnicomticManagmentsysytem.Views
         private void cmbSubjects_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private void LoadCourses()
+        {
+            var conn = DatabaseManager.GetConnection();
+            string query = "SELECT CourseID, CourseName FROM Courses";
+            using (var cmd = new SQLiteCommand(query, conn))
+            using (var reader = cmd.ExecuteReader())
+            {
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                cmbCourse.DataSource = dt;
+                cmbCourse.DisplayMember = "CourseName";
+                cmbCourse.ValueMember = "CourseID";
+            }
         }
     }
 }

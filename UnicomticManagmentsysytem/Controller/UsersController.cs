@@ -50,7 +50,7 @@ namespace UnicomticManagmentsysytem.Controller
                 }
                 else if (role == "Lecturer")
                 {
-                    insertProfileQuery = "INSERT INTO Lecturers (FullnameName, Age, Address, NIC, Gender, Class, UserID) " +
+                    insertProfileQuery = "INSERT INTO Lecturers (FullName, Age, Address, NIC, Gender, Class, UserID) " +
                                          "VALUES (@fullName, @age, @address, @nic, @gender, @class, @userId)";
                 }
                 else if (role == "Admin")
@@ -76,6 +76,8 @@ namespace UnicomticManagmentsysytem.Controller
                         cmd.Parameters.AddWithValue("@gender", gender);
                         cmd.Parameters.AddWithValue("@class", className);
                         cmd.Parameters.AddWithValue("@userId", userId);
+
+                        cmd.ExecuteNonQuery();
 
                     }
 

@@ -142,7 +142,7 @@
             this.panel.BackgroundImage = global::UnicomticManagmentsysytem.Properties.Resources._1699632566323;
             this.panel.Location = new System.Drawing.Point(187, 1);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(766, 542);
+            this.panel.Size = new System.Drawing.Size(817, 542);
             this.panel.TabIndex = 15;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
@@ -151,7 +151,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(954, 543);
+            this.ClientSize = new System.Drawing.Size(1002, 543);
             this.ControlBox = false;
             this.Controls.Add(this.panel);
             this.Controls.Add(this.panel2);

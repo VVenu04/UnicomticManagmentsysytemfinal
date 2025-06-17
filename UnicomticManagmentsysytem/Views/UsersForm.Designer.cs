@@ -50,6 +50,8 @@
             this.txtclass = new System.Windows.Forms.TextBox();
             this.rdbFEMalee = new System.Windows.Forms.RadioButton();
             this.rdbMalee = new System.Windows.Forms.RadioButton();
+            this.cmbCourse = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -251,12 +253,31 @@
             this.rdbMalee.UseVisualStyleBackColor = true;
             this.rdbMalee.CheckedChanged += new System.EventHandler(this.rdbMalee_CheckedChanged);
             // 
+            // cmbCourse
+            // 
+            this.cmbCourse.FormattingEnabled = true;
+            this.cmbCourse.Location = new System.Drawing.Point(631, 67);
+            this.cmbCourse.Name = "cmbCourse";
+            this.cmbCourse.Size = new System.Drawing.Size(121, 21);
+            this.cmbCourse.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(555, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "COURSE";
+            // 
             // UsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cmbCourse);
             this.Controls.Add(this.rdbFEMalee);
             this.Controls.Add(this.rdbMalee);
             this.Controls.Add(this.txtclass);
@@ -312,5 +333,7 @@
         private System.Windows.Forms.TextBox txtclass;
         private System.Windows.Forms.RadioButton rdbFEMalee;
         private System.Windows.Forms.RadioButton rdbMalee;
+        private System.Windows.Forms.ComboBox cmbCourse;
+        private System.Windows.Forms.Label label2;
     }
 }
