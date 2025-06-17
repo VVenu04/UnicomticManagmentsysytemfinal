@@ -71,9 +71,7 @@
     <Compile Include="Controller\MarkController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\TimetableController.cs" />
-    <Compile Include="C:\Users\UT010034\OneDrive\UsersController.cs">
-      <Link>Controller\UsersController.cs</Link>
-    </Compile>
+    <Compile Include="Controller\UsersController.cs" />
     <Compile Include="Repositories\DatabaseManager.cs" />
     <Compile Include="Views\ChangePassword.cs">
       <SubType>Form</SubType>

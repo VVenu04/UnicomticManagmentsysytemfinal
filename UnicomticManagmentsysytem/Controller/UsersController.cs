@@ -185,6 +185,17 @@ namespace UnicomticManagmentsysytem.Controller
                 return false;
             }
         }
+        public static long GetUserIdByUsername(string username)
+        {
+            var conn = DatabaseManager.GetConnection();
+            string query = "SELECT UserID FROM Users WHERE Username = @username";
+            using (var cmd = new SQLiteCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@username", username);
+                var result = cmd.ExecuteScalar();
+                return result != null ? Convert.ToInt64(result) : -1;
+            }
+        }
 
         public static bool DeleteUser(int userId, out string error)
         {
