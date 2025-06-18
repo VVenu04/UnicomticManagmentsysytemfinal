@@ -44,42 +44,47 @@
             // 
             // txtsub
             // 
-            this.txtsub.Location = new System.Drawing.Point(159, 107);
+            this.txtsub.Location = new System.Drawing.Point(186, 115);
+            this.txtsub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtsub.Name = "txtsub";
-            this.txtsub.Size = new System.Drawing.Size(183, 20);
+            this.txtsub.Size = new System.Drawing.Size(213, 22);
             this.txtsub.TabIndex = 13;
             // 
             // txtCourseName
             // 
-            this.txtCourseName.Location = new System.Drawing.Point(159, 62);
+            this.txtCourseName.Location = new System.Drawing.Point(186, 67);
+            this.txtCourseName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCourseName.Name = "txtCourseName";
-            this.txtCourseName.Size = new System.Drawing.Size(183, 20);
+            this.txtCourseName.Size = new System.Drawing.Size(213, 22);
             this.txtCourseName.TabIndex = 14;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(82, 114);
+            this.label5.Location = new System.Drawing.Point(96, 123);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.Size = new System.Drawing.Size(75, 14);
             this.label5.TabIndex = 17;
             this.label5.Text = "Sujject Name";
             // 
             // lblcourse
             // 
             this.lblcourse.AutoSize = true;
-            this.lblcourse.Location = new System.Drawing.Point(82, 65);
+            this.lblcourse.Location = new System.Drawing.Point(96, 70);
+            this.lblcourse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblcourse.Name = "lblcourse";
-            this.lblcourse.Size = new System.Drawing.Size(71, 13);
+            this.lblcourse.Size = new System.Drawing.Size(77, 14);
             this.lblcourse.TabIndex = 18;
             this.lblcourse.Text = "Course Name";
             this.lblcourse.Click += new System.EventHandler(this.lblcourse_Click);
             // 
             // btndel
             // 
-            this.btndel.Location = new System.Drawing.Point(267, 184);
+            this.btndel.Location = new System.Drawing.Point(312, 198);
+            this.btndel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btndel.Name = "btndel";
-            this.btndel.Size = new System.Drawing.Size(75, 23);
+            this.btndel.Size = new System.Drawing.Size(88, 25);
             this.btndel.TabIndex = 20;
             this.btndel.Text = "DELETE";
             this.btndel.UseVisualStyleBackColor = true;
@@ -89,9 +94,10 @@
             // 
             this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnadd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnadd.Location = new System.Drawing.Point(159, 184);
+            this.btnadd.Location = new System.Drawing.Point(186, 198);
+            this.btnadd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(75, 23);
+            this.btnadd.Size = new System.Drawing.Size(88, 25);
             this.btnadd.TabIndex = 19;
             this.btnadd.Text = "ADD";
             this.btnadd.UseVisualStyleBackColor = true;
@@ -100,16 +106,18 @@
             // dgvco
             // 
             this.dgvco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvco.Location = new System.Drawing.Point(124, 238);
+            this.dgvco.Location = new System.Drawing.Point(145, 256);
+            this.dgvco.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvco.Name = "dgvco";
-            this.dgvco.Size = new System.Drawing.Size(336, 181);
+            this.dgvco.Size = new System.Drawing.Size(392, 195);
             this.dgvco.TabIndex = 21;
             // 
             // btnup
             // 
-            this.btnup.Location = new System.Drawing.Point(374, 184);
+            this.btnup.Location = new System.Drawing.Point(436, 198);
+            this.btnup.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnup.Name = "btnup";
-            this.btnup.Size = new System.Drawing.Size(75, 23);
+            this.btnup.Size = new System.Drawing.Size(88, 25);
             this.btnup.TabIndex = 22;
             this.btnup.Text = "UPDATE";
             this.btnup.UseVisualStyleBackColor = true;
@@ -118,17 +126,19 @@
             // cmbcourse
             // 
             this.cmbcourse.FormattingEnabled = true;
-            this.cmbcourse.Location = new System.Drawing.Point(566, 57);
+            this.cmbcourse.Location = new System.Drawing.Point(660, 61);
+            this.cmbcourse.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmbcourse.Name = "cmbcourse";
-            this.cmbcourse.Size = new System.Drawing.Size(121, 21);
+            this.cmbcourse.Size = new System.Drawing.Size(140, 22);
             this.cmbcourse.TabIndex = 23;
             this.cmbcourse.SelectedIndexChanged += new System.EventHandler(this.cmcourse_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(566, 90);
+            this.button1.Location = new System.Drawing.Point(660, 97);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 37);
+            this.button1.Size = new System.Drawing.Size(118, 40);
             this.button1.TabIndex = 25;
             this.button1.Text = "ADD Suject For Exiting Cource";
             this.button1.UseVisualStyleBackColor = true;
@@ -136,9 +146,10 @@
             // 
             // btnback
             // 
-            this.btnback.Location = new System.Drawing.Point(12, 12);
+            this.btnback.Location = new System.Drawing.Point(14, 13);
+            this.btnback.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(75, 23);
+            this.btnback.Size = new System.Drawing.Size(88, 25);
             this.btnback.TabIndex = 26;
             this.btnback.Text = "⬅️ BACK\r\n\r\n\r\n";
             this.btnback.UseVisualStyleBackColor = true;
@@ -146,10 +157,10 @@
             // 
             // CourseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(933, 485);
             this.Controls.Add(this.btnback);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbcourse);
@@ -161,6 +172,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtCourseName);
             this.Controls.Add(this.txtsub);
+            this.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "CourseForm";
             this.Text = "CourseForm";
             this.Load += new System.EventHandler(this.CourseForm_Load);

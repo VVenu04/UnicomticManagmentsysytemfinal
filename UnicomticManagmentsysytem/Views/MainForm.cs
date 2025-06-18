@@ -181,5 +181,16 @@ namespace UnicomticManagmentsysytem
         {
             LoadFormInpanel(new ExamForm());
         }
+
+        private void btnMarks_Click(object sender, EventArgs e)
+        {
+            LoadFormInpanel(new MarkForm());
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

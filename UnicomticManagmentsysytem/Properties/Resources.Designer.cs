@@ -93,9 +93,29 @@ namespace UnicomticManagmentsysytem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kimberly_farmer_lUaaKCUANVI_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("kimberly-farmer-lUaaKCUANVI-unsplash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Screenshot__6_ {
             get {
                 object obj = ResourceManager.GetObject("Screenshot (6)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2025_06_18_at_12_27_10_PM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2025-06-18 at 12.27.10 PM", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

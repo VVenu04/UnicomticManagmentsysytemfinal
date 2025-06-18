@@ -26,6 +26,7 @@ namespace UnicomticManagmentsysytem.Views
             cmbExam.DataSource = controller.GetAllExams();
             cmbExam.DisplayMember = "ExamName";
             cmbExam.ValueMember = "ExamID";
+            cmbExam.SelectedIndex = -1;
         }
 
         private void LoadStudents()
@@ -33,6 +34,7 @@ namespace UnicomticManagmentsysytem.Views
             cmbStudent.DataSource = controller.GetAllStudents();
             cmbStudent.DisplayMember = "StudentName"; // or "FullName" based on your table
             cmbStudent.ValueMember = "StudentID";
+            cmbStudent.SelectedIndex = -1;
         }
 
         private void LoadMarks()
@@ -41,6 +43,15 @@ namespace UnicomticManagmentsysytem.Views
         }
 
         private void btnSave_Click(object sender, EventArgs e)
+        {
+           
+        }
+        private void MarkForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             if (cmbExam.SelectedIndex == -1 || cmbStudent.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtScore.Text))
             {
@@ -66,12 +77,8 @@ namespace UnicomticManagmentsysytem.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error saving score: " + ex.Message);
             }
-        }
-        private void MarkForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

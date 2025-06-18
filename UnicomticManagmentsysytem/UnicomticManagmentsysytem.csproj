@@ -69,6 +69,7 @@
     <Compile Include="Controller\ExamController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\MarkController.cs" />
+    <Compile Include="Controller\RoomController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\TimetableController.cs" />
     <Compile Include="Controller\UsersController.cs" />
@@ -174,6 +175,9 @@
     <EmbeddedResource Include="Views\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TimetableForm.resx">
+      <DependentUpon>TimetableForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UsersForm.resx">
       <DependentUpon>UsersForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +206,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Screenshot %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2025-06-18 at 12.27.10 PM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kimberly-farmer-lUaaKCUANVI-unsplash.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />

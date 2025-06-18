@@ -224,5 +224,10 @@ namespace UnicomticManagmentsysytem.Views
                 cmbCourse.ValueMember = "CourseID";
             }
         }
+
+        private void cmbCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

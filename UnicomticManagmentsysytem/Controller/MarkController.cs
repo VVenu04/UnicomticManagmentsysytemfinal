@@ -13,31 +13,58 @@ namespace UnicomticManagmentsysytem.Controller
     {
         private SQLiteConnection conn = DatabaseManager.GetConnection();
 
+        // Returns DataTable of Exams (using SQLiteCommand + Reader)
         public DataTable GetAllExams()
         {
+            DataTable dt = new DataTable();
             string query = "SELECT ExamID, ExamName FROM Exams";
-            using (var adapter = new SQLiteDataAdapter(query, conn))
+
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+
+            using (var cmd = new SQLiteCommand(query, conn))
+            using (var reader = cmd.ExecuteReader())
             {
-                var dt = new DataTable();
-                adapter.Fill(dt);
-                return dt;
+                dt.Load(reader);
             }
+
+            return dt;
         }
 
+        // Returns DataTable of Students
         public DataTable GetAllStudents()
         {
-            string query = "SELECT StudentID, StudentName FROM Students"; // Adjust column names
-            using (var adapter = new SQLiteDataAdapter(query, conn))
+            DataTable dt = new DataTable();
+            string query = "SELECT StudentID, FullName FROM Students";
+
+            try
             {
-                var dt = new DataTable();
-                adapter.Fill(dt);
-                return dt;
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                using (var cmd = new SQLiteCommand(query, conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    dt.Load(reader);  // Load the DataTable from the reader
+                }
             }
+            catch (Exception ex)
+            {
+                // You can handle the error or log it
+                throw new Exception("Error fetching students: " + ex.Message);
+            }
+
+            return dt;
         }
 
+        // Insert new mark
         public void AddMark(long studentId, long examId, int score)
         {
             string insert = "INSERT INTO Marks (StudentID, ExamID, Score) VALUES (@sid, @eid, @score)";
+
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+
             using (var cmd = new SQLiteCommand(insert, conn))
             {
                 cmd.Parameters.AddWithValue("@sid", studentId);
@@ -47,24 +74,30 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+        // Get all marks with joined details
         public DataTable GetAllMarksWithDetails()
         {
+            DataTable dt = new DataTable();
             string query = @"
                 SELECT 
                     m.MarkID,
-                    s.StudentName,
+                    s.FullName,
                     e.ExamName,
                     m.Score
                 FROM Marks m
                 JOIN Students s ON m.StudentID = s.StudentID
                 JOIN Exams e ON m.ExamID = e.ExamID";
 
-            using (var adapter = new SQLiteDataAdapter(query, conn))
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+
+            using (var cmd = new SQLiteCommand(query, conn))
+            using (var reader = cmd.ExecuteReader())
             {
-                var dt = new DataTable();
-                adapter.Fill(dt);
-                return dt;
+                dt.Load(reader);
             }
+
+            return dt;
         }
     }
 }
