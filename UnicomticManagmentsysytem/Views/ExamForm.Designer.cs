@@ -94,7 +94,7 @@
             // dgvExams
             // 
             this.dgvExams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExams.Location = new System.Drawing.Point(149, 300);
+            this.dgvExams.Location = new System.Drawing.Point(142, 271);
             this.dgvExams.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvExams.Name = "dgvExams";
             this.dgvExams.Size = new System.Drawing.Size(586, 181);
@@ -125,7 +125,7 @@
             // 
             // dtpExamDate
             // 
-            this.dtpExamDate.Location = new System.Drawing.Point(642, 106);
+            this.dtpExamDate.Location = new System.Drawing.Point(600, 134);
             this.dtpExamDate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dtpExamDate.Name = "dtpExamDate";
             this.dtpExamDate.Size = new System.Drawing.Size(233, 22);
@@ -134,7 +134,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(548, 113);
+            this.label3.Location = new System.Drawing.Point(507, 134);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 14);
@@ -154,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(933, 485);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label3);

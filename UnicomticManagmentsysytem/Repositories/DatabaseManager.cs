@@ -49,12 +49,12 @@ namespace UnicomticManagmentsysytem.Repositories
                         (CourseID INTEGER PRIMARY KEY AUTOINCREMENT,
                          CourseName TEXT NOT NULL);",
 
-                 //@"CREATE TABLE IF NOT EXISTS Courses_Subject
-                 //       (CourseID INTEGER ,
-                 //       SubjectID INTEGER,
-                 //       PRIMARY KEY(CourseID,SubjectID),
-                 //       FOREIGN KEY (CourseID)  REFERENCES Courses (CourseID),
-                 //   FOREIGN KEY (SubjectID) REFERENCES Subjects (SubjectID));",
+                 @"CREATE TABLE IF NOT EXISTS Courses_Subject
+                        (CourseID INTEGER ,
+                        SubjectID INTEGER,
+                        PRIMARY KEY(CourseID,SubjectID),
+                        FOREIGN KEY (CourseID)  REFERENCES Courses (CourseID),
+                    FOREIGN KEY (SubjectID) REFERENCES Subjects (SubjectID));",
 
                 @"CREATE TABLE IF NOT EXISTS Admin
                         (AdminID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -139,8 +139,8 @@ namespace UnicomticManagmentsysytem.Repositories
                           Day TEXT NOT NULL,            
                           Time TEXT NOT NULL,
                           FOREIGN KEY (SubjectID)  REFERENCES Subjects (SubjectID),
-                            FOREIGN KEY (RoomID)  REFERENCES Rooms (RoomID)
-                           FOREIGN KEY (LecturerID) REFERENCES Lecturers(LecturerID)
+                          FOREIGN KEY (RoomID)  REFERENCES Rooms (RoomID),
+                          FOREIGN KEY (LecturerID) REFERENCES Lecturers(LecturerID)
                           );",
 
 

@@ -95,5 +95,10 @@ namespace UnicomticManagmentsysytem.Views
                 MessageBox.Show(error);
             }
         }
+
+        private void dgvTimetable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

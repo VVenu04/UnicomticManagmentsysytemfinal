@@ -16,14 +16,14 @@ namespace UnicomticManagmentsysytem.Controller
 
         public static DataTable GetAllTimetables()
         {
-            var conn = DatabaseManager.GetConnection();
+             var conn = DatabaseManager.GetConnection();
             string query = @"SELECT 
                                 t.TimetableID, 
                                 s.SubjectName, 
                                 t.Class,
                                 r.RoomName, 
                                 r.RoomType, 
-                                l.FullName AS Lecturer, 
+                                
                                 t.Day, 
                                 t.Time
                             FROM Timetables t
@@ -31,11 +31,19 @@ namespace UnicomticManagmentsysytem.Controller
                             JOIN Rooms r ON t.RoomID = r.RoomID
                             JOIN Lecturers l ON t.LecturerID = l.LecturerID
                             ORDER BY t.Day, t.Time";
-            using (var adapter = new SQLiteDataAdapter(query, conn))
+            try
             {
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                return dt;
+                using (var adapter = new SQLiteDataAdapter(query, conn))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Timetable load error: " + ex.Message);
+                return null;
             }
         }
 

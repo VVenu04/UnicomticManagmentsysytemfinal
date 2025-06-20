@@ -30,6 +30,7 @@
         {
             this.lblWelcome = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,9 +72,20 @@
             this.panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel2.Location = new System.Drawing.Point(1, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(189, 570);
+            this.panel2.Size = new System.Drawing.Size(189, 639);
             this.panel2.TabIndex = 14;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(0, 185);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(186, 27);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Manage Room";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_3);
             // 
             // btnChangePassword
             // 
@@ -125,7 +136,7 @@
             // btnMarks
             // 
             this.btnMarks.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnMarks.Location = new System.Drawing.Point(3, 61);
+            this.btnMarks.Location = new System.Drawing.Point(0, 218);
             this.btnMarks.Name = "btnMarks";
             this.btnMarks.Size = new System.Drawing.Size(186, 27);
             this.btnMarks.TabIndex = 15;
@@ -147,7 +158,7 @@
             // btnaddusers
             // 
             this.btnaddusers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnaddusers.Location = new System.Drawing.Point(3, 447);
+            this.btnaddusers.Location = new System.Drawing.Point(3, 57);
             this.btnaddusers.Name = "btnaddusers";
             this.btnaddusers.Size = new System.Drawing.Size(186, 27);
             this.btnaddusers.TabIndex = 13;
@@ -166,7 +177,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(187, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(878, 84);
+            this.pictureBox1.Size = new System.Drawing.Size(965, 84);
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
@@ -176,27 +187,16 @@
             this.panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel.Location = new System.Drawing.Point(187, 85);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(878, 486);
+            this.panel.Size = new System.Drawing.Size(965, 555);
             this.panel.TabIndex = 15;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(0, 185);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(186, 27);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Manage Room";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_3);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1065, 572);
+            this.ClientSize = new System.Drawing.Size(1152, 637);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel);

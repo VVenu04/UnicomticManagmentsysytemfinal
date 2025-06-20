@@ -52,7 +52,11 @@
             this.rdbMalee = new System.Windows.Forms.RadioButton();
             this.cmbCourse = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtusername
@@ -87,7 +91,7 @@
             // 
             // btnadd
             // 
-            this.btnadd.Location = new System.Drawing.Point(254, 226);
+            this.btnadd.Location = new System.Drawing.Point(118, 226);
             this.btnadd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(88, 25);
@@ -109,7 +113,7 @@
             // 
             // btndel
             // 
-            this.btndel.Location = new System.Drawing.Point(451, 226);
+            this.btndel.Location = new System.Drawing.Point(300, 226);
             this.btndel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btndel.Name = "btndel";
             this.btndel.Size = new System.Drawing.Size(88, 25);
@@ -120,7 +124,7 @@
             // 
             // btnalluser
             // 
-            this.btnalluser.Location = new System.Drawing.Point(664, 226);
+            this.btnalluser.Location = new System.Drawing.Point(450, 226);
             this.btnalluser.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnalluser.Name = "btnalluser";
             this.btnalluser.Size = new System.Drawing.Size(88, 25);
@@ -132,11 +136,12 @@
             // dgvUsers
             // 
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(284, 282);
+            this.dgvUsers.Location = new System.Drawing.Point(166, 280);
             this.dgvUsers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.Size = new System.Drawing.Size(394, 167);
             this.dgvUsers.TabIndex = 10;
+            this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
             // 
             // txtaddress
             // 
@@ -295,12 +300,31 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "COURSE";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(579, 206);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(342, 267);
+            this.panel1.TabIndex = 29;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UnicomticManagmentsysytem.Properties.Resources.WhatsApp_Image_2025_06_20_at_12_46_13_PM__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(327, 261);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // UsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(933, 485);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbCourse);
             this.Controls.Add(this.rdbFEMalee);
@@ -331,6 +355,8 @@
             this.Text = "UsersForm";
             this.Load += new System.EventHandler(this.UsersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,5 +388,7 @@
         private System.Windows.Forms.RadioButton rdbMalee;
         private System.Windows.Forms.ComboBox cmbCourse;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
