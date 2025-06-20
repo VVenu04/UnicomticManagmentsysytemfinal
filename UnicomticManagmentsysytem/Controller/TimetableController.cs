@@ -23,7 +23,7 @@ namespace UnicomticManagmentsysytem.Controller
                                 t.Class,
                                 r.RoomName, 
                                 r.RoomType, 
-                                
+                                l.FullName AS Lecturer,
                                 t.Day, 
                                 t.Time
                             FROM Timetables t
@@ -128,7 +128,7 @@ namespace UnicomticManagmentsysytem.Controller
         public static DataTable GetLecturers()
         {
             var conn = DatabaseManager.GetConnection();
-            string query = "SELECT LecturerID, FullnameName FROM Lecturers ORDER BY FullnameName";
+            string query = "SELECT LecturerID, FullName FROM Lecturers ORDER BY FullName";
             using (var adapter = new SQLiteDataAdapter(query, conn))
             {
                 DataTable dt = new DataTable();

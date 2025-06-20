@@ -100,7 +100,7 @@ namespace UnicomticManagmentsysytem.Repositories
 
                 @"CREATE TABLE IF NOT EXISTS Lecturers
                          (LecturerID INTEGER PRIMARY KEY AUTOINCREMENT,
-                            FullnameName TEXT NOT NULL, 
+                            FullName TEXT NOT NULL, 
                             Age INTEGER,
                             Address TEXT,
                             NIC TEXT,
@@ -136,6 +136,7 @@ namespace UnicomticManagmentsysytem.Repositories
                           Class TEXT,
                           RoomID INTEGER,
                           LecturerID INTEGER,
+                          FullName TEXT,
                           Day TEXT NOT NULL,            
                           Time TEXT NOT NULL,
                           FOREIGN KEY (SubjectID)  REFERENCES Subjects (SubjectID),

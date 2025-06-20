@@ -37,7 +37,7 @@ namespace UnicomticManagmentsysytem.Views
             cmbRoom.ValueMember = "RoomID";
 
             cmbLecturer.DataSource = TimetableController.GetLecturers();
-            cmbLecturer.DisplayMember = "FullnameName";
+            cmbLecturer.DisplayMember = "FullName";
             cmbLecturer.ValueMember = "LecturerID";
         }
         private void LoadTimetable()
