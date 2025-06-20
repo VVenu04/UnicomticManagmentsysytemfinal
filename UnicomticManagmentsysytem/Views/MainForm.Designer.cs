@@ -40,6 +40,7 @@
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +59,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
+            this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.lblWelcome);
             this.panel2.Controls.Add(this.btnChangePassword);
             this.panel2.Controls.Add(this.button1);
@@ -178,6 +180,17 @@
             this.panel.TabIndex = 15;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(0, 185);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(186, 27);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Manage Room";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_3);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,6 +224,7 @@
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -128,22 +128,31 @@ namespace UnicomticManagmentsysytem.Repositories
                           FOREIGN KEY (ExamID)  REFERENCES Exams (ExamID));",
 
                 @"CREATE TABLE IF NOT EXISTS Rooms
-                         (RoomID INTEGER PRIMARY KEY AUTOINCREMENT, RoomName TEXT NOT NULL, RoomType TEXT NOT NULL);",
+                     (RoomID INTEGER PRIMARY KEY AUTOINCREMENT, RoomName TEXT NOT NULL, RoomType TEXT NOT NULL);",
 
                 @"CREATE TABLE IF NOT EXISTS Timetables
-                         (TimetableID INTEGER PRIMARY KEY, 
+                         (TimetableID INTEGER PRIMARY KEY AUTOINCREMENT, 
                           SubjectID INTEGER, 
-                          TimeSlot TEXT NOT NULL,
+                          Class TEXT,
                           RoomID INTEGER,
-                          FOREIGN KEY (SubjectID)  REFERENCES Subjects (SubjectID), 
-                          FOREIGN KEY (RoomID)  REFERENCES Rooms (RoomID));",
+                          LecturerID INTEGER,
+                          Day TEXT NOT NULL,            
+                          Time TEXT NOT NULL,
+                          FOREIGN KEY (SubjectID)  REFERENCES Subjects (SubjectID),
+                            FOREIGN KEY (RoomID)  REFERENCES Rooms (RoomID)
+                           FOREIGN KEY (LecturerID) REFERENCES Lecturers(LecturerID)
+                          );",
+
+
                  @"CREATE TABLE IF NOT EXISTS Student_Subject (
-                StudentID INTEGER,
-                SubjectID INTEGER,
-                PRIMARY KEY(StudentID, SubjectID),
-                FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
-                FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
-            );",
+                      StudentID INTEGER,
+                      SubjectID INTEGER,
+                      PRIMARY KEY(StudentID, SubjectID), 
+                           
+                        FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+                        FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
+                
+            );"
 
                 //@"CREATE TABLE IF NOT EXISTS Lecturer_Subject (
                 //    LecturerID INTEGER,

@@ -10,14 +10,18 @@ namespace UnicomticManagmentsysytem.Models
     {
         public int TimetableID { get; set; }
         public string SubjectID { get; set; }
-        public string TimeSlot { get; set; }
+        
         public string RoomID { get; set; }
-        
-        
-           
 
-            
-            public string SubjectName { get; set; }
+        public string Day { get; set; }
+
+        public string Time { get; set; }
+        public string LecturerName { get; set; }
+
+
+
+
+        public string SubjectName { get; set; }
             public string RoomName { get; set; }
             public string RoomType { get; set; }
         

@@ -133,7 +133,7 @@ namespace UnicomticManagmentsysytem
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-
+            LoadFormInpanel(new TimetableForm());
         }
 
         private void panelMain_Paint(object sender, PaintEventArgs e)
@@ -191,6 +191,11 @@ namespace UnicomticManagmentsysytem
         private void panel1_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button2_Click_3(object sender, EventArgs e)
+        {
+            LoadFormInpanel(new RoomForm());
         }
     }
 }
