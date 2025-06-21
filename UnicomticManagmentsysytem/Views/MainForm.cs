@@ -34,13 +34,21 @@ namespace UnicomticManagmentsysytem
             // Example role handling
             if (_role == "Student")
             {
+                btnroo.Visible = false;
+                btnTimetable.Visible = false;
+                btnstu.Visible = false;
+                btnlec.Visible = false;
                 btnaddusers.Visible = false;
                 btnExams.Visible = false;
                 button1.Visible = false;
+                btnMarks.Visible = false;
             }
             else if (_role == "Lecturer")
             {
-                btnTimetable.Visible = true;
+                btnstu.Visible = false;
+                btnroo.Visible = false;
+                btnlec.Visible = false;
+                btnTimetable.Visible =false;
                 btnMarks.Visible = true;
             }
             else if (_role == "Admin")
@@ -196,6 +204,16 @@ namespace UnicomticManagmentsysytem
         private void button2_Click_3(object sender, EventArgs e)
         {
             LoadFormInpanel(new RoomForm());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoadFormInpanel(new LecturerForm());
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            LoadFormInpanel(new StudentForm());
         }
     }
 }

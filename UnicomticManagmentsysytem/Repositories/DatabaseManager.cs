@@ -153,15 +153,15 @@ namespace UnicomticManagmentsysytem.Repositories
                         FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
                         FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
                 
-            );"
+            );",
 
-                //@"CREATE TABLE IF NOT EXISTS Lecturer_Subject (
-                //    LecturerID INTEGER,
-                //    SubjectID INTEGER,
-                //    PRIMARY KEY(LecturerID, SubjectID),
-                //    FOREIGN KEY (LecturerID) REFERENCES Lecturers(LecturerID),
-                //    FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
-                //);"
+                @"CREATE TABLE IF NOT EXISTS Lecturer_Subject (
+                    LecturerID INTEGER,
+                    SubjectID INTEGER,
+                    PRIMARY KEY(LecturerID, SubjectID),
+                    FOREIGN KEY (LecturerID) REFERENCES Lecturers(LecturerID),
+                    FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
+                );"
 
         };
 

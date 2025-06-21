@@ -36,13 +36,14 @@
             this.txtScore = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.dgvMarks = new System.Windows.Forms.DataGridView();
+            this.btnback = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarks)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(90, 44);
+            this.label1.Location = new System.Drawing.Point(90, 88);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 14);
@@ -52,7 +53,7 @@
             // cmbExam
             // 
             this.cmbExam.FormattingEnabled = true;
-            this.cmbExam.Location = new System.Drawing.Point(198, 36);
+            this.cmbExam.Location = new System.Drawing.Point(198, 80);
             this.cmbExam.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmbExam.Name = "cmbExam";
             this.cmbExam.Size = new System.Drawing.Size(229, 22);
@@ -61,7 +62,7 @@
             // cmbStudent
             // 
             this.cmbStudent.FormattingEnabled = true;
-            this.cmbStudent.Location = new System.Drawing.Point(198, 82);
+            this.cmbStudent.Location = new System.Drawing.Point(198, 119);
             this.cmbStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmbStudent.Name = "cmbStudent";
             this.cmbStudent.Size = new System.Drawing.Size(229, 22);
@@ -70,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(90, 90);
+            this.label2.Location = new System.Drawing.Point(90, 127);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 14);
@@ -79,7 +80,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(198, 127);
+            this.textBox1.Location = new System.Drawing.Point(198, 160);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(116, 22);
@@ -88,7 +89,7 @@
             // txtScore
             // 
             this.txtScore.AutoSize = true;
-            this.txtScore.Location = new System.Drawing.Point(90, 135);
+            this.txtScore.Location = new System.Drawing.Point(90, 163);
             this.txtScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtScore.Name = "txtScore";
             this.txtScore.Size = new System.Drawing.Size(35, 14);
@@ -97,7 +98,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(306, 195);
+            this.btnSave.Location = new System.Drawing.Point(301, 221);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(88, 25);
@@ -115,12 +116,24 @@
             this.dgvMarks.Size = new System.Drawing.Size(592, 162);
             this.dgvMarks.TabIndex = 7;
             // 
+            // btnback
+            // 
+            this.btnback.Location = new System.Drawing.Point(13, 12);
+            this.btnback.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(88, 25);
+            this.btnback.TabIndex = 62;
+            this.btnback.Text = "⬅️ BACK\r\n\r\n\r\n";
+            this.btnback.UseVisualStyleBackColor = true;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            // 
             // MarkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(933, 485);
+            this.Controls.Add(this.btnback);
             this.Controls.Add(this.dgvMarks);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtScore);
@@ -150,5 +163,6 @@
         private System.Windows.Forms.Label txtScore;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridView dgvMarks;
+        private System.Windows.Forms.Button btnback;
     }
 }

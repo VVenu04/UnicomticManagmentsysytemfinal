@@ -194,6 +194,9 @@
     <EmbeddedResource Include="Views\RoomForm.resx">
       <DependentUpon>RoomForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\StudentForm.resx">
+      <DependentUpon>StudentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TimetableForm.resx">
       <DependentUpon>TimetableForm.cs</DependentUpon>
     </EmbeddedResource>

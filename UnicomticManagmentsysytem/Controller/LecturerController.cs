@@ -70,6 +70,41 @@ namespace UnicomticManagmentsysytem.Controller
                 return dt;
             }
         }
+        public static bool UpdateLecturer(int id, string fullName, int age, string address, string nic, string gender, string className, int subjectId, out string error)
+        {
+            error = "";
+            try
+            {
+                var conn = DatabaseManager.GetConnection();
+                string updateQuery = @"UPDATE Lecturers SET 
+                                        FullName = @full, 
+                                        Age = @age, 
+                                        Address = @addr, 
+                                        NIC = @nic, 
+                                        Gender = @gender, 
+                                        Class = @class, 
+                                        SubjectID = @subject 
+                                      WHERE LecturerID = @id";
+                using (var cmd = new SQLiteCommand(updateQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@full", fullName);
+                    cmd.Parameters.AddWithValue("@age", age);
+                    cmd.Parameters.AddWithValue("@addr", address);
+                    cmd.Parameters.AddWithValue("@nic", nic);
+                    cmd.Parameters.AddWithValue("@gender", gender);
+                    cmd.Parameters.AddWithValue("@class", className);
+                    cmd.Parameters.AddWithValue("@subject", subjectId);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                error = "Error updating lecturer: " + ex.Message;
+                return false;
+            }
+        }
 
         public static DataTable GetAllLecturers()
         {

@@ -30,7 +30,7 @@
         {
             this.lblWelcome = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnroo = new System.Windows.Forms.Button();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
@@ -39,8 +39,10 @@
             this.btnTimetable = new System.Windows.Forms.Button();
             this.btnaddusers = new System.Windows.Forms.Button();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
+            this.btnlec = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel = new System.Windows.Forms.Panel();
+            this.btnstu = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +61,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnstu);
+            this.panel2.Controls.Add(this.btnlec);
+            this.panel2.Controls.Add(this.btnroo);
             this.panel2.Controls.Add(this.lblWelcome);
             this.panel2.Controls.Add(this.btnChangePassword);
             this.panel2.Controls.Add(this.button1);
@@ -76,16 +80,16 @@
             this.panel2.TabIndex = 14;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // button2
+            // btnroo
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(0, 185);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(186, 27);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Manage Room";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_3);
+            this.btnroo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnroo.Location = new System.Drawing.Point(0, 185);
+            this.btnroo.Name = "btnroo";
+            this.btnroo.Size = new System.Drawing.Size(186, 27);
+            this.btnroo.TabIndex = 20;
+            this.btnroo.Text = "Manage Room";
+            this.btnroo.UseVisualStyleBackColor = true;
+            this.btnroo.Click += new System.EventHandler(this.button2_Click_3);
             // 
             // btnChangePassword
             // 
@@ -135,7 +139,7 @@
             // 
             // btnMarks
             // 
-            this.btnMarks.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnMarks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMarks.Location = new System.Drawing.Point(0, 218);
             this.btnMarks.Name = "btnMarks";
             this.btnMarks.Size = new System.Drawing.Size(186, 27);
@@ -170,6 +174,17 @@
             // 
             this.sqLiteCommand1.CommandText = null;
             // 
+            // btnlec
+            // 
+            this.btnlec.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnlec.Location = new System.Drawing.Point(0, 251);
+            this.btnlec.Name = "btnlec";
+            this.btnlec.Size = new System.Drawing.Size(186, 27);
+            this.btnlec.TabIndex = 21;
+            this.btnlec.Text = "Manage lecturer";
+            this.btnlec.UseVisualStyleBackColor = true;
+            this.btnlec.Click += new System.EventHandler(this.button3_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -190,6 +205,17 @@
             this.panel.Size = new System.Drawing.Size(965, 555);
             this.panel.TabIndex = 15;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
+            // 
+            // btnstu
+            // 
+            this.btnstu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnstu.Location = new System.Drawing.Point(0, 284);
+            this.btnstu.Name = "btnstu";
+            this.btnstu.Size = new System.Drawing.Size(186, 27);
+            this.btnstu.TabIndex = 22;
+            this.btnstu.Text = "Manage Students";
+            this.btnstu.UseVisualStyleBackColor = true;
+            this.btnstu.Click += new System.EventHandler(this.button4_Click);
             // 
             // MainForm
             // 
@@ -224,7 +250,9 @@
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnroo;
+        private System.Windows.Forms.Button btnlec;
+        private System.Windows.Forms.Button btnstu;
     }
 }
 
