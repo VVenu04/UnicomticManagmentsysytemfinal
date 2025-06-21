@@ -39,6 +39,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +51,7 @@
             this.txtoldpass.Location = new System.Drawing.Point(255, 131);
             this.txtoldpass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtoldpass.Name = "txtoldpass";
+            this.txtoldpass.PasswordChar = '•';
             this.txtoldpass.Size = new System.Drawing.Size(213, 23);
             this.txtoldpass.TabIndex = 13;
             this.txtoldpass.TextChanged += new System.EventHandler(this.txtoldpass_TextChanged);
@@ -57,6 +61,7 @@
             this.txtNewPassword.Location = new System.Drawing.Point(255, 191);
             this.txtNewPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.PasswordChar = '•';
             this.txtNewPassword.Size = new System.Drawing.Size(213, 23);
             this.txtNewPassword.TabIndex = 14;
             // 
@@ -65,6 +70,7 @@
             this.txtConfirmPassword.Location = new System.Drawing.Point(255, 248);
             this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '•';
             this.txtConfirmPassword.Size = new System.Drawing.Size(213, 23);
             this.txtConfirmPassword.TabIndex = 15;
             // 
@@ -134,9 +140,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(512, 24);
+            this.panel1.Location = new System.Drawing.Point(564, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(372, 508);
+            this.panel1.Size = new System.Drawing.Size(320, 508);
             this.panel1.TabIndex = 30;
             // 
             // pictureBox1
@@ -149,12 +155,48 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(476, 136);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(43, 20);
+            this.checkBox1.TabIndex = 31;
+            this.checkBox1.Text = "👁️";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(475, 250);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(43, 20);
+            this.checkBox4.TabIndex = 34;
+            this.checkBox4.Text = "👁️";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(476, 194);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(43, 20);
+            this.checkBox5.TabIndex = 35;
+            this.checkBox5.Text = "👁️";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
+            // 
             // ChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(896, 554);
+            this.Controls.Add(this.checkBox5);
+            this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnback);
@@ -190,5 +232,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox5;
     }
 }

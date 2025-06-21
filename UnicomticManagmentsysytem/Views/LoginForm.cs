@@ -77,10 +77,18 @@ namespace UnicomticManagmentsysytem.Views
 
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            bool show = chkShowPassword.Checked;
+            //bool show = chkShowPassword.Checked;
 
-            txtPassword.UseSystemPasswordChar = !show;
-            txtPassword.UseSystemPasswordChar = !show;
+            //txtPassword.UseSystemPasswordChar = !show;
+            //txtPassword.UseSystemPasswordChar = !show;
+            if (chkShowPassword.Checked) {
+                txtPassword.PasswordChar = '\0';
+            }
+            //hide password
+            else
+            {
+                txtPassword.PasswordChar = '•';
+            }
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)

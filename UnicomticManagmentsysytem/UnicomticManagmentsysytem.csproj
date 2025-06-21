@@ -157,6 +157,18 @@
     <Compile Include="Views\UsersForm.Designer.cs">
       <DependentUpon>UsersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewExamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ViewExamForm.Designer.cs">
+      <DependentUpon>ViewExamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewTimeTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ViewTimeTableForm.Designer.cs">
+      <DependentUpon>ViewTimeTableForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -202,6 +214,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UsersForm.resx">
       <DependentUpon>UsersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewExamForm.resx">
+      <DependentUpon>ViewExamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewTimeTableForm.resx">
+      <DependentUpon>ViewTimeTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Repositories\packages.config" />
     <None Include="Properties\Settings.settings">

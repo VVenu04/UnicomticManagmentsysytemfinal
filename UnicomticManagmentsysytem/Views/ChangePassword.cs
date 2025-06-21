@@ -93,7 +93,45 @@ namespace UnicomticManagmentsysytem.Views
             this.Parent.Controls.Remove(this);
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                //show password
+                txtoldpass.PasswordChar = '\0';
+            }
+            //hide password
+            else {
+                txtoldpass.PasswordChar = '•';
+            }
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox5.Checked)
+            {
+                txtNewPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                txtNewPassword.PasswordChar = '•';
+            }
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox4.Checked)
+            {
+                txtConfirmPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                txtConfirmPassword.PasswordChar = '•';
+            }
+        }
+        }
     } 
-}
+
     
 

@@ -34,6 +34,9 @@ namespace UnicomticManagmentsysytem
             // Example role handling
             if (_role == "Student")
             {
+                btnvexam.Visible = true;
+
+                btnview.Visible = true;
                 btnroo.Visible = false;
                 btnTimetable.Visible = false;
                 btnstu.Visible = false;
@@ -214,6 +217,17 @@ namespace UnicomticManagmentsysytem
         private void button4_Click(object sender, EventArgs e)
         {
             LoadFormInpanel(new StudentForm());
+        }
+
+        private void button2_Click_4(object sender, EventArgs e)
+        {
+            LoadFormInpanel(new ViewTimeTableForm());
+        }
+
+        private void button2_Click_5(object sender, EventArgs e)
+        {
+            LoadFormInpanel(new ViewExamForm());
+
         }
     }
 }

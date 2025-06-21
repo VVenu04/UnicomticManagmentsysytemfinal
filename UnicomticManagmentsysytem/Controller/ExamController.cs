@@ -104,5 +104,20 @@ namespace UnicomticManagmentsysytem.Controller
                 }
             }
         }
+        public static DataTable GetAllExams()
+        {
+            var conn = DatabaseManager.GetConnection();
+            string query = @"SELECT e.ExamID, e.ExamName, s.SubjectName, e.ExamDate
+                     FROM Exams e
+                     JOIN Subjects s ON e.SubjectID = s.SubjectID
+                     ORDER BY e.ExamDate";
+
+            using (var adapter = new SQLiteDataAdapter(query, conn))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+        }
     }
 }

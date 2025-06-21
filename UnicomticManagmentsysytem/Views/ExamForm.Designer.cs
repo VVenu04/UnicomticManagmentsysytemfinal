@@ -39,6 +39,7 @@
             this.dtpExamDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExams)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,12 +151,23 @@
             this.txtSearch.TabIndex = 11;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(163, 134);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 14);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Search";
+            // 
             // ExamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(933, 485);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpExamDate);
@@ -191,5 +203,6 @@
         private System.Windows.Forms.DateTimePicker dtpExamDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label4;
     }
 }
