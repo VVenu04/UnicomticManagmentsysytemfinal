@@ -11,7 +11,7 @@ namespace UnicomticManagmentsysytem.Controller
 {
     internal class CourseController
     {
-        private SQLiteConnection conn = DatabaseManager.GetConnection();
+        private SQLiteConnection conn = DatabaseManager.GetConnection();//gg
 
         public long AddOrGetCourse(string courseName)
         {
