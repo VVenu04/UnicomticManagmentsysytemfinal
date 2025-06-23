@@ -48,6 +48,7 @@
             this.dgvLecturers = new System.Windows.Forms.DataGridView();
             this.btnback = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLecturers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -240,12 +241,24 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Gadugi", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(326, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(269, 38);
+            this.label2.TabIndex = 61;
+            this.label2.Text = "Manage Lecturer";
+            // 
             // LecturerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(915, 554);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnback);
             this.Controls.Add(this.dgvLecturers);
@@ -299,5 +312,6 @@
         private System.Windows.Forms.DataGridView dgvLecturers;
         private System.Windows.Forms.Button btnback;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
     }
 }

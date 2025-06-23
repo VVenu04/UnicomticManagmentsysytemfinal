@@ -30,6 +30,7 @@
         {
             this.dgvTimetable = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnback = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimetable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,12 +56,24 @@
             this.label4.TabIndex = 31;
             this.label4.Text = " View Timetable";
             // 
+            // btnback
+            // 
+            this.btnback.Location = new System.Drawing.Point(11, 12);
+            this.btnback.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(88, 25);
+            this.btnback.TabIndex = 32;
+            this.btnback.Text = "⬅️ BACK\r\n\r\n\r\n";
+            this.btnback.UseVisualStyleBackColor = true;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            // 
             // ViewTimeTableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(941, 470);
+            this.Controls.Add(this.btnback);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvTimetable);
             this.Name = "ViewTimeTableForm";
@@ -76,5 +89,6 @@
 
         private System.Windows.Forms.DataGridView dgvTimetable;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnback;
     }
 }

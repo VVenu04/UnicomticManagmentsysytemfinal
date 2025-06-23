@@ -43,6 +43,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnback = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimetable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,6 +155,7 @@
             this.cmbTime.Name = "cmbTime";
             this.cmbTime.Size = new System.Drawing.Size(140, 22);
             this.cmbTime.TabIndex = 16;
+            this.cmbTime.SelectedIndexChanged += new System.EventHandler(this.cmbTime_SelectedIndexChanged);
             // 
             // cmbDay
             // 
@@ -193,12 +196,36 @@
             this.label6.TabIndex = 20;
             this.label6.Text = "ROOM";
             // 
+            // btnback
+            // 
+            this.btnback.Location = new System.Drawing.Point(24, 12);
+            this.btnback.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(88, 25);
+            this.btnback.TabIndex = 63;
+            this.btnback.Text = "⬅️ BACK\r\n\r\n\r\n";
+            this.btnback.UseVisualStyleBackColor = true;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Gadugi", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(343, 22);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(296, 38);
+            this.label4.TabIndex = 64;
+            this.label4.Text = "Manage Timetable";
+            // 
             // TimetableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(985, 551);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnback);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -241,5 +268,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnback;
+        private System.Windows.Forms.Label label4;
     }
 }

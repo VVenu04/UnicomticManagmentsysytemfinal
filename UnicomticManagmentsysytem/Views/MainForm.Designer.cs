@@ -30,6 +30,7 @@
         {
             this.lblWelcome = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnatten = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnvexam = new System.Windows.Forms.Button();
             this.btnview = new System.Windows.Forms.Button();
@@ -37,7 +38,7 @@
             this.btnlec = new System.Windows.Forms.Button();
             this.btnroo = new System.Windows.Forms.Button();
             this.btnChangePassword = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnco = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
             this.btnExams = new System.Windows.Forms.Button();
             this.btnMarks = new System.Windows.Forms.Button();
@@ -64,6 +65,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
+            this.panel2.Controls.Add(this.btnatten);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.btnvexam);
             this.panel2.Controls.Add(this.btnview);
@@ -72,7 +74,7 @@
             this.panel2.Controls.Add(this.btnroo);
             this.panel2.Controls.Add(this.lblWelcome);
             this.panel2.Controls.Add(this.btnChangePassword);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnco);
             this.panel2.Controls.Add(this.btnlogout);
             this.panel2.Controls.Add(this.btnExams);
             this.panel2.Controls.Add(this.btnMarks);
@@ -85,6 +87,17 @@
             this.panel2.Size = new System.Drawing.Size(189, 639);
             this.panel2.TabIndex = 14;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // btnatten
+            // 
+            this.btnatten.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnatten.Location = new System.Drawing.Point(0, 369);
+            this.btnatten.Name = "btnatten";
+            this.btnatten.Size = new System.Drawing.Size(186, 27);
+            this.btnatten.TabIndex = 26;
+            this.btnatten.Text = "Attendence";
+            this.btnatten.UseVisualStyleBackColor = true;
+            this.btnatten.Click += new System.EventHandler(this.btnatten_Click);
             // 
             // button2
             // 
@@ -111,7 +124,7 @@
             // btnview
             // 
             this.btnview.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnview.Location = new System.Drawing.Point(0, 132);
+            this.btnview.Location = new System.Drawing.Point(3, 132);
             this.btnview.Name = "btnview";
             this.btnview.Size = new System.Drawing.Size(186, 27);
             this.btnview.TabIndex = 23;
@@ -122,7 +135,7 @@
             // btnstu
             // 
             this.btnstu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnstu.Location = new System.Drawing.Point(3, 369);
+            this.btnstu.Location = new System.Drawing.Point(3, 402);
             this.btnstu.Name = "btnstu";
             this.btnstu.Size = new System.Drawing.Size(186, 27);
             this.btnstu.TabIndex = 22;
@@ -133,7 +146,7 @@
             // btnlec
             // 
             this.btnlec.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnlec.Location = new System.Drawing.Point(0, 336);
+            this.btnlec.Location = new System.Drawing.Point(3, 435);
             this.btnlec.Name = "btnlec";
             this.btnlec.Size = new System.Drawing.Size(186, 27);
             this.btnlec.TabIndex = 21;
@@ -156,7 +169,7 @@
             // 
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnChangePassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnChangePassword.Location = new System.Drawing.Point(3, 476);
+            this.btnChangePassword.Location = new System.Drawing.Point(0, 538);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(183, 25);
             this.btnChangePassword.TabIndex = 19;
@@ -164,22 +177,22 @@
             this.btnChangePassword.UseVisualStyleBackColor = true;
             this.btnChangePassword.Click += new System.EventHandler(this.button2_Click_2);
             // 
-            // button1
+            // btnco
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(0, 204);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 27);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Courses";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnco.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnco.Location = new System.Drawing.Point(0, 204);
+            this.btnco.Name = "btnco";
+            this.btnco.Size = new System.Drawing.Size(186, 27);
+            this.btnco.TabIndex = 18;
+            this.btnco.Text = "Manage Courses";
+            this.btnco.UseVisualStyleBackColor = true;
+            this.btnco.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnlogout
             // 
             this.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnlogout.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnlogout.Location = new System.Drawing.Point(0, 507);
+            this.btnlogout.Location = new System.Drawing.Point(0, 569);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(186, 27);
             this.btnlogout.TabIndex = 17;
@@ -190,11 +203,11 @@
             // btnExams
             // 
             this.btnExams.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExams.Location = new System.Drawing.Point(0, 402);
+            this.btnExams.Location = new System.Drawing.Point(0, 336);
             this.btnExams.Name = "btnExams";
             this.btnExams.Size = new System.Drawing.Size(186, 27);
             this.btnExams.TabIndex = 16;
-            this.btnExams.Text = "Exam";
+            this.btnExams.Text = " Manage Exam";
             this.btnExams.UseVisualStyleBackColor = true;
             this.btnExams.Click += new System.EventHandler(this.btnExams_Click_1);
             // 
@@ -205,7 +218,7 @@
             this.btnMarks.Name = "btnMarks";
             this.btnMarks.Size = new System.Drawing.Size(186, 27);
             this.btnMarks.TabIndex = 15;
-            this.btnMarks.Text = "Marks";
+            this.btnMarks.Text = " Manage Marks";
             this.btnMarks.UseVisualStyleBackColor = true;
             this.btnMarks.Click += new System.EventHandler(this.btnMarks_Click);
             // 
@@ -223,11 +236,11 @@
             // btnaddusers
             // 
             this.btnaddusers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnaddusers.Location = new System.Drawing.Point(-6, 171);
+            this.btnaddusers.Location = new System.Drawing.Point(0, 171);
             this.btnaddusers.Name = "btnaddusers";
             this.btnaddusers.Size = new System.Drawing.Size(186, 27);
             this.btnaddusers.TabIndex = 13;
-            this.btnaddusers.Text = "ADD USER";
+            this.btnaddusers.Text = "Manage User";
             this.btnaddusers.UseVisualStyleBackColor = true;
             this.btnaddusers.Click += new System.EventHandler(this.btnaddusers_Click);
             // 
@@ -285,7 +298,7 @@
         private System.Windows.Forms.Button btnTimetable;
         private System.Windows.Forms.Button btnaddusers;
         private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnco;
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
@@ -295,6 +308,7 @@
         private System.Windows.Forms.Button btnview;
         private System.Windows.Forms.Button btnvexam;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnatten;
     }
 }
 

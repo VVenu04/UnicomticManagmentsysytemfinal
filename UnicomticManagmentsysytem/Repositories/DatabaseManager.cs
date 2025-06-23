@@ -161,7 +161,18 @@ namespace UnicomticManagmentsysytem.Repositories
                     PRIMARY KEY(LecturerID, SubjectID),
                     FOREIGN KEY (LecturerID) REFERENCES Lecturers(LecturerID),
                     FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
-                );"
+                );",
+
+                @"CREATE TABLE IF NOT EXISTS Attendance (
+                    AttendanceID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    StudentID INTEGER,
+                    SubjectID INTEGER,
+                    Date TEXT,
+                    Status TEXT,
+                    UNIQUE(StudentID, SubjectID, Date),
+                    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+                    FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
+);"
 
         };
 

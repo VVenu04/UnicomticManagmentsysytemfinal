@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AttendanceController.cs" />
     <Compile Include="Controller\CourseController.cs" />
     <Compile Include="Controller\ExamController.cs" />
     <Compile Include="Controller\LecturerController.cs" />
@@ -75,8 +76,15 @@
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\TimetableController.cs" />
     <Compile Include="Controller\UsersController.cs" />
+    <Compile Include="Models\Attendance.cs" />
     <Compile Include="Models\Myprofile.cs" />
     <Compile Include="Repositories\DatabaseManager.cs" />
+    <Compile Include="Views\AttendanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AttendanceForm.Designer.cs">
+      <DependentUpon>AttendanceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +195,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\AttendanceForm.resx">
+      <DependentUpon>AttendanceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>

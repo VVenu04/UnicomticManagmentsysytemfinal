@@ -37,13 +37,16 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.dgvMarks = new System.Windows.Forms.DataGridView();
             this.btnback = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarks)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(90, 88);
+            this.label1.Location = new System.Drawing.Point(90, 93);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 14);
@@ -53,16 +56,17 @@
             // cmbExam
             // 
             this.cmbExam.FormattingEnabled = true;
-            this.cmbExam.Location = new System.Drawing.Point(198, 80);
-            this.cmbExam.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cmbExam.Location = new System.Drawing.Point(198, 93);
+            this.cmbExam.Margin = new System.Windows.Forms.Padding(4, 3, 4, 4);
             this.cmbExam.Name = "cmbExam";
             this.cmbExam.Size = new System.Drawing.Size(229, 22);
             this.cmbExam.TabIndex = 1;
+            this.cmbExam.SelectedIndexChanged += new System.EventHandler(this.cmbExam_SelectedIndexChanged);
             // 
             // cmbStudent
             // 
             this.cmbStudent.FormattingEnabled = true;
-            this.cmbStudent.Location = new System.Drawing.Point(198, 119);
+            this.cmbStudent.Location = new System.Drawing.Point(198, 136);
             this.cmbStudent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmbStudent.Name = "cmbStudent";
             this.cmbStudent.Size = new System.Drawing.Size(229, 22);
@@ -71,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(90, 127);
+            this.label2.Location = new System.Drawing.Point(90, 144);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 14);
@@ -80,7 +84,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(198, 160);
+            this.textBox1.Location = new System.Drawing.Point(198, 177);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(116, 22);
@@ -89,7 +93,7 @@
             // txtScore
             // 
             this.txtScore.AutoSize = true;
-            this.txtScore.Location = new System.Drawing.Point(90, 163);
+            this.txtScore.Location = new System.Drawing.Point(90, 177);
             this.txtScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtScore.Name = "txtScore";
             this.txtScore.Size = new System.Drawing.Size(35, 14);
@@ -110,11 +114,12 @@
             // dgvMarks
             // 
             this.dgvMarks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMarks.Location = new System.Drawing.Point(161, 268);
+            this.dgvMarks.Location = new System.Drawing.Point(223, 268);
             this.dgvMarks.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvMarks.Name = "dgvMarks";
-            this.dgvMarks.Size = new System.Drawing.Size(592, 162);
+            this.dgvMarks.Size = new System.Drawing.Size(492, 205);
             this.dgvMarks.TabIndex = 7;
+            this.dgvMarks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarks_CellContentClick);
             // 
             // btnback
             // 
@@ -127,12 +132,48 @@
             this.btnback.UseVisualStyleBackColor = true;
             this.btnback.Click += new System.EventHandler(this.btnback_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(429, 221);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(88, 25);
+            this.button1.TabIndex = 63;
+            this.button1.Text = "DELETE";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(577, 221);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(88, 25);
+            this.button2.TabIndex = 64;
+            this.button2.Text = "UPDATE";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Gadugi", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(294, 22);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(330, 38);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "Manage Exam Marks";
+            // 
             // MarkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(933, 485);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnback);
             this.Controls.Add(this.dgvMarks);
             this.Controls.Add(this.btnSave);
@@ -164,5 +205,8 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridView dgvMarks;
         private System.Windows.Forms.Button btnback;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -40,12 +40,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnback = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExams)).BeginInit();
             this.SuspendLayout();
             // 
             // TXTEXAM
             // 
-            this.TXTEXAM.Location = new System.Drawing.Point(212, 48);
+            this.TXTEXAM.Location = new System.Drawing.Point(212, 126);
             this.TXTEXAM.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TXTEXAM.Name = "TXTEXAM";
             this.TXTEXAM.Size = new System.Drawing.Size(213, 22);
@@ -54,7 +56,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(97, 56);
+            this.label1.Location = new System.Drawing.Point(85, 126);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 14);
@@ -65,7 +67,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(97, 97);
+            this.label2.Location = new System.Drawing.Point(85, 168);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 14);
@@ -75,7 +77,7 @@
             // cmbSubjects
             // 
             this.cmbSubjects.FormattingEnabled = true;
-            this.cmbSubjects.Location = new System.Drawing.Point(212, 88);
+            this.cmbSubjects.Location = new System.Drawing.Point(212, 160);
             this.cmbSubjects.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmbSubjects.Name = "cmbSubjects";
             this.cmbSubjects.Size = new System.Drawing.Size(199, 22);
@@ -83,7 +85,7 @@
             // 
             // btnadd
             // 
-            this.btnadd.Location = new System.Drawing.Point(197, 219);
+            this.btnadd.Location = new System.Drawing.Point(189, 259);
             this.btnadd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(88, 25);
@@ -95,7 +97,7 @@
             // dgvExams
             // 
             this.dgvExams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExams.Location = new System.Drawing.Point(142, 271);
+            this.dgvExams.Location = new System.Drawing.Point(166, 306);
             this.dgvExams.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvExams.Name = "dgvExams";
             this.dgvExams.Size = new System.Drawing.Size(586, 181);
@@ -104,7 +106,7 @@
             // 
             // btnupdate
             // 
-            this.btnupdate.Location = new System.Drawing.Point(510, 219);
+            this.btnupdate.Location = new System.Drawing.Point(510, 259);
             this.btnupdate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(107, 25);
@@ -115,7 +117,7 @@
             // 
             // btndel
             // 
-            this.btndel.Location = new System.Drawing.Point(338, 219);
+            this.btndel.Location = new System.Drawing.Point(336, 259);
             this.btndel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btndel.Name = "btndel";
             this.btndel.Size = new System.Drawing.Size(119, 25);
@@ -144,7 +146,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(212, 131);
+            this.txtSearch.Location = new System.Drawing.Point(212, 209);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(213, 22);
@@ -154,19 +156,43 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(163, 134);
+            this.label4.Location = new System.Drawing.Point(137, 209);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 14);
             this.label4.TabIndex = 12;
             this.label4.Text = "Search";
             // 
+            // btnback
+            // 
+            this.btnback.Location = new System.Drawing.Point(13, 12);
+            this.btnback.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(88, 25);
+            this.btnback.TabIndex = 63;
+            this.btnback.Text = "⬅️ BACK\r\n\r\n\r\n";
+            this.btnback.UseVisualStyleBackColor = true;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Gadugi", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(310, 35);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(242, 38);
+            this.label5.TabIndex = 64;
+            this.label5.Text = "Manage Exams";
+            // 
             // ExamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(933, 485);
+            this.ClientSize = new System.Drawing.Size(933, 499);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnback);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label3);
@@ -204,5 +230,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnback;
+        private System.Windows.Forms.Label label5;
     }
 }

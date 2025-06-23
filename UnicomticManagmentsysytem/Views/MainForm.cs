@@ -35,7 +35,7 @@ namespace UnicomticManagmentsysytem
             if (_role == "Student")
             {
                 btnvexam.Visible = true;
-
+                btnatten.Visible = false;
                 btnview.Visible = true;
                 btnroo.Visible = false;
                 btnTimetable.Visible = false;
@@ -43,11 +43,13 @@ namespace UnicomticManagmentsysytem
                 btnlec.Visible = false;
                 btnaddusers.Visible = false;
                 btnExams.Visible = false;
-                button1.Visible = false;
+                btnco.Visible = false;
                 btnMarks.Visible = false;
             }
             else if (_role == "Lecturer")
             {
+                btnco.Visible = false;
+                btnaddusers.Visible = false;
                 btnstu.Visible = false;
                 btnroo.Visible = false;
                 btnlec.Visible = false;
@@ -234,6 +236,12 @@ namespace UnicomticManagmentsysytem
         {
             LoadFormInpanel(new MyprofileForm(_username,_role));
             
+        }
+
+        private void btnatten_Click(object sender, EventArgs e)
+        {
+            LoadFormInpanel(new AttendanceForm());
+
         }
     }
 }

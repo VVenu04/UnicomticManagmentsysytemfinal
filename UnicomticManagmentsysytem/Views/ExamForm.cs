@@ -145,5 +145,11 @@ namespace UnicomticManagmentsysytem.Views
             string keyword = txtSearch.Text.Trim();
             dgvExams.DataSource = controller.SearchExams(keyword);
         }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Remove(this);
+
+        }
     }
 }

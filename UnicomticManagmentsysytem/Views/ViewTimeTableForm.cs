@@ -36,5 +36,11 @@ namespace UnicomticManagmentsysytem.Views
         {
 
         }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Remove(this);
+
+        }
     }
 }
