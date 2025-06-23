@@ -229,5 +229,11 @@ namespace UnicomticManagmentsysytem
             LoadFormInpanel(new ViewExamForm());
 
         }
+
+        private void button2_Click_6(object sender, EventArgs e)
+        {
+            LoadFormInpanel(new MyprofileForm(_username,_role));
+            
+        }
     }
 }

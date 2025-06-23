@@ -30,6 +30,11 @@
         {
             this.lblWelcome = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnvexam = new System.Windows.Forms.Button();
+            this.btnview = new System.Windows.Forms.Button();
+            this.btnstu = new System.Windows.Forms.Button();
+            this.btnlec = new System.Windows.Forms.Button();
             this.btnroo = new System.Windows.Forms.Button();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -39,10 +44,6 @@
             this.btnTimetable = new System.Windows.Forms.Button();
             this.btnaddusers = new System.Windows.Forms.Button();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
-            this.btnlec = new System.Windows.Forms.Button();
-            this.btnstu = new System.Windows.Forms.Button();
-            this.btnview = new System.Windows.Forms.Button();
-            this.btnvexam = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
@@ -63,6 +64,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
+            this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.btnvexam);
             this.panel2.Controls.Add(this.btnview);
             this.panel2.Controls.Add(this.btnstu);
@@ -84,10 +86,65 @@
             this.panel2.TabIndex = 14;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(0, 57);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(186, 27);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "MY PROFILE";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_6);
+            // 
+            // btnvexam
+            // 
+            this.btnvexam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnvexam.Location = new System.Drawing.Point(0, 99);
+            this.btnvexam.Name = "btnvexam";
+            this.btnvexam.Size = new System.Drawing.Size(186, 27);
+            this.btnvexam.TabIndex = 24;
+            this.btnvexam.Text = "View Exam\r\n";
+            this.btnvexam.UseVisualStyleBackColor = true;
+            this.btnvexam.Click += new System.EventHandler(this.button2_Click_5);
+            // 
+            // btnview
+            // 
+            this.btnview.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnview.Location = new System.Drawing.Point(0, 132);
+            this.btnview.Name = "btnview";
+            this.btnview.Size = new System.Drawing.Size(186, 27);
+            this.btnview.TabIndex = 23;
+            this.btnview.Text = "View Timtable";
+            this.btnview.UseVisualStyleBackColor = true;
+            this.btnview.Click += new System.EventHandler(this.button2_Click_4);
+            // 
+            // btnstu
+            // 
+            this.btnstu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnstu.Location = new System.Drawing.Point(3, 369);
+            this.btnstu.Name = "btnstu";
+            this.btnstu.Size = new System.Drawing.Size(186, 27);
+            this.btnstu.TabIndex = 22;
+            this.btnstu.Text = "Manage Students";
+            this.btnstu.UseVisualStyleBackColor = true;
+            this.btnstu.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btnlec
+            // 
+            this.btnlec.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnlec.Location = new System.Drawing.Point(0, 336);
+            this.btnlec.Name = "btnlec";
+            this.btnlec.Size = new System.Drawing.Size(186, 27);
+            this.btnlec.TabIndex = 21;
+            this.btnlec.Text = "Manage lecturer";
+            this.btnlec.UseVisualStyleBackColor = true;
+            this.btnlec.Click += new System.EventHandler(this.button3_Click);
+            // 
             // btnroo
             // 
             this.btnroo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnroo.Location = new System.Drawing.Point(0, 185);
+            this.btnroo.Location = new System.Drawing.Point(3, 270);
             this.btnroo.Name = "btnroo";
             this.btnroo.Size = new System.Drawing.Size(186, 27);
             this.btnroo.TabIndex = 20;
@@ -110,7 +167,7 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(3, 123);
+            this.button1.Location = new System.Drawing.Point(0, 204);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(186, 27);
             this.button1.TabIndex = 18;
@@ -133,7 +190,7 @@
             // btnExams
             // 
             this.btnExams.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExams.Location = new System.Drawing.Point(0, 90);
+            this.btnExams.Location = new System.Drawing.Point(0, 402);
             this.btnExams.Name = "btnExams";
             this.btnExams.Size = new System.Drawing.Size(186, 27);
             this.btnExams.TabIndex = 16;
@@ -144,7 +201,7 @@
             // btnMarks
             // 
             this.btnMarks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMarks.Location = new System.Drawing.Point(0, 218);
+            this.btnMarks.Location = new System.Drawing.Point(3, 303);
             this.btnMarks.Name = "btnMarks";
             this.btnMarks.Size = new System.Drawing.Size(186, 27);
             this.btnMarks.TabIndex = 15;
@@ -155,7 +212,7 @@
             // btnTimetable
             // 
             this.btnTimetable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTimetable.Location = new System.Drawing.Point(3, 152);
+            this.btnTimetable.Location = new System.Drawing.Point(0, 237);
             this.btnTimetable.Name = "btnTimetable";
             this.btnTimetable.Size = new System.Drawing.Size(186, 27);
             this.btnTimetable.TabIndex = 14;
@@ -166,7 +223,7 @@
             // btnaddusers
             // 
             this.btnaddusers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnaddusers.Location = new System.Drawing.Point(3, 57);
+            this.btnaddusers.Location = new System.Drawing.Point(-6, 171);
             this.btnaddusers.Name = "btnaddusers";
             this.btnaddusers.Size = new System.Drawing.Size(186, 27);
             this.btnaddusers.TabIndex = 13;
@@ -177,50 +234,6 @@
             // sqLiteCommand1
             // 
             this.sqLiteCommand1.CommandText = null;
-            // 
-            // btnlec
-            // 
-            this.btnlec.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnlec.Location = new System.Drawing.Point(0, 251);
-            this.btnlec.Name = "btnlec";
-            this.btnlec.Size = new System.Drawing.Size(186, 27);
-            this.btnlec.TabIndex = 21;
-            this.btnlec.Text = "Manage lecturer";
-            this.btnlec.UseVisualStyleBackColor = true;
-            this.btnlec.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // btnstu
-            // 
-            this.btnstu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnstu.Location = new System.Drawing.Point(0, 284);
-            this.btnstu.Name = "btnstu";
-            this.btnstu.Size = new System.Drawing.Size(186, 27);
-            this.btnstu.TabIndex = 22;
-            this.btnstu.Text = "Manage Students";
-            this.btnstu.UseVisualStyleBackColor = true;
-            this.btnstu.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // btnview
-            // 
-            this.btnview.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnview.Location = new System.Drawing.Point(0, 317);
-            this.btnview.Name = "btnview";
-            this.btnview.Size = new System.Drawing.Size(186, 27);
-            this.btnview.TabIndex = 23;
-            this.btnview.Text = "View Timtable";
-            this.btnview.UseVisualStyleBackColor = true;
-            this.btnview.Click += new System.EventHandler(this.button2_Click_4);
-            // 
-            // btnvexam
-            // 
-            this.btnvexam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnvexam.Location = new System.Drawing.Point(0, 350);
-            this.btnvexam.Name = "btnvexam";
-            this.btnvexam.Size = new System.Drawing.Size(186, 27);
-            this.btnvexam.TabIndex = 24;
-            this.btnvexam.Text = "View Exam\r\n";
-            this.btnvexam.UseVisualStyleBackColor = true;
-            this.btnvexam.Click += new System.EventHandler(this.button2_Click_5);
             // 
             // pictureBox1
             // 
@@ -281,6 +294,7 @@
         private System.Windows.Forms.Button btnstu;
         private System.Windows.Forms.Button btnview;
         private System.Windows.Forms.Button btnvexam;
+        private System.Windows.Forms.Button button2;
     }
 }
 

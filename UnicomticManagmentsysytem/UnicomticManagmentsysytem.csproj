@@ -70,10 +70,12 @@
     <Compile Include="Controller\LecturerController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\MarkController.cs" />
+    <Compile Include="Controller\MyprofileController.cs" />
     <Compile Include="Controller\RoomController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\TimetableController.cs" />
     <Compile Include="Controller\UsersController.cs" />
+    <Compile Include="Models\Myprofile.cs" />
     <Compile Include="Repositories\DatabaseManager.cs" />
     <Compile Include="Views\ChangePassword.cs">
       <SubType>Form</SubType>
@@ -126,6 +128,12 @@
     </Compile>
     <Compile Include="Views\MarkForm.Designer.cs">
       <DependentUpon>MarkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyprofileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MyprofileForm.Designer.cs">
+      <DependentUpon>MyprofileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\RegisterForm.cs">
       <SubType>Form</SubType>
@@ -199,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MarkForm.resx">
       <DependentUpon>MarkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyprofileForm.resx">
+      <DependentUpon>MyprofileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
