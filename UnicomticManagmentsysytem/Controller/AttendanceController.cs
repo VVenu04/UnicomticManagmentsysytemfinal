@@ -60,7 +60,7 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
-        public static DataTable GetAllAttendance()
+        public static DataTable GetAllAttendance()//get every atten
         {
             var conn = DatabaseManager.GetConnection();
                 string query = @"
