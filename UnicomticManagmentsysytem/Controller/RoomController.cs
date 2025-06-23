@@ -12,6 +12,10 @@ namespace UnicomticManagmentsysytem.Controller
 {
     internal class RoomController
     {
+
+
+
+
         public static DataTable GetAllRooms()
         {
             var conn = DatabaseManager.GetConnection();
@@ -23,6 +27,12 @@ namespace UnicomticManagmentsysytem.Controller
                 return dt;
             }
         }
+
+
+
+
+
+
 
         public static bool AddRoom(string roomName, string roomType, out string error)
         {
@@ -51,6 +61,10 @@ namespace UnicomticManagmentsysytem.Controller
                 return false;
             }
         }
+
+
+
+
 
         public static bool DeleteRoom(int roomId, out string error)
         {

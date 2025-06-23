@@ -47,6 +47,10 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+
+
+
+
         public static bool AddTimetable(int subjectId, int roomId, int lecturerId, string day, string time, string className, out string error)
         {
             error = "";
@@ -80,6 +84,10 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+
+
+
+
         public static bool DeleteTimetable(int id, out string error)
         {
             error = "";
@@ -101,6 +109,12 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+
+
+
+
+
+
         public static DataTable GetRooms()
         {
             var conn = DatabaseManager.GetConnection();
@@ -113,6 +127,11 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+
+
+
+
+
         public static DataTable GetSubjects()
         {
             var conn = DatabaseManager.GetConnection();
@@ -124,6 +143,14 @@ namespace UnicomticManagmentsysytem.Controller
                 return dt;
             }
         }
+
+
+
+
+
+
+
+
 
         public static DataTable GetLecturers()
         {

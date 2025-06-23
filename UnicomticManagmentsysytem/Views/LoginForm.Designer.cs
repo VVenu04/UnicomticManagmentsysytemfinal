@@ -137,7 +137,7 @@
             this.txtPassword.Location = new System.Drawing.Point(22, 145);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '•';
-            this.txtPassword.Size = new System.Drawing.Size(166, 20);
+            this.txtPassword.Size = new System.Drawing.Size(166, 22);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
@@ -170,7 +170,7 @@
             this.cmbrole.FormattingEnabled = true;
             this.cmbrole.Location = new System.Drawing.Point(22, 185);
             this.cmbrole.Name = "cmbrole";
-            this.cmbrole.Size = new System.Drawing.Size(145, 21);
+            this.cmbrole.Size = new System.Drawing.Size(145, 22);
             this.cmbrole.TabIndex = 6;
             // 
             // button1
@@ -188,7 +188,7 @@
             this.chkShowPassword.AutoSize = true;
             this.chkShowPassword.Location = new System.Drawing.Point(209, 153);
             this.chkShowPassword.Name = "chkShowPassword";
-            this.chkShowPassword.Size = new System.Drawing.Size(38, 17);
+            this.chkShowPassword.Size = new System.Drawing.Size(41, 18);
             this.chkShowPassword.TabIndex = 21;
             this.chkShowPassword.Text = "👁";
             this.chkShowPassword.UseVisualStyleBackColor = true;
@@ -205,6 +205,7 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.cmbrole);
+            this.panel2.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(363, -1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(409, 453);

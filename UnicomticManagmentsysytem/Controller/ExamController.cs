@@ -27,6 +27,10 @@ namespace UnicomticManagmentsysytem.Controller
         }
 
 
+
+
+
+
         public DataTable GetAllSubjects()
         {
             string query = "SELECT SubjectID, SubjectName FROM Subjects";
@@ -37,6 +41,11 @@ namespace UnicomticManagmentsysytem.Controller
                 return dt;
             }
         }
+
+
+
+
+
         public void UpdateExam(long examId, string newName, long newSubjectId)
         {
             string query = "UPDATE Exams SET ExamName = @name, SubjectID = @subId WHERE ExamID = @id";
@@ -48,6 +57,15 @@ namespace UnicomticManagmentsysytem.Controller
                 cmd.ExecuteNonQuery();
             }
         }
+
+
+
+
+
+
+
+
+
 
         public void DeleteExam(long examId)
         {
@@ -66,6 +84,13 @@ namespace UnicomticManagmentsysytem.Controller
                 cmd.ExecuteNonQuery();
             }
         }
+
+
+
+
+
+
+
 
         public DataTable GetAllExamsWithSubjects()
         {
@@ -86,6 +111,14 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+
+
+
+
+
+
+
+
         public DataTable SearchExams(string keyword)
         {
             string query = @"
@@ -104,6 +137,11 @@ namespace UnicomticManagmentsysytem.Controller
                 }
             }
         }
+
+
+
+
+
         public static DataTable GetAllExams()
         {
             var conn = DatabaseManager.GetConnection();

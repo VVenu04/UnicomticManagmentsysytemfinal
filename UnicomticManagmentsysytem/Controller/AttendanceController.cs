@@ -48,7 +48,7 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
-        public static DataTable GetSubjects()
+        public static DataTable GetSubjects()//get subject from subjects table
         {
             var conn = DatabaseManager.GetConnection();
             string query = "SELECT SubjectID, SubjectName FROM Subjects ORDER BY SubjectName";

@@ -24,6 +24,12 @@ namespace UnicomticManagmentsysytem.Controller
         }
         
 
+
+
+
+
+
+
         public static DataTable GetAllStudents()
         {
             var conn = DatabaseManager.GetConnection();
@@ -39,6 +45,10 @@ namespace UnicomticManagmentsysytem.Controller
                 return dt;
             }
         }
+
+
+
+
 
         public static bool AddStudentWithUser(string username, string fullName, int age, string address, string nic, string gender, string className, int courseId, out string error)
         {
@@ -84,6 +94,10 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+
+
+
+
         public static bool UpdateStudent(int id, string fullName, int age, string address, string nic, string gender, string className, int courseId, out string error)
         {
             error = "";
@@ -113,6 +127,12 @@ namespace UnicomticManagmentsysytem.Controller
                 return false;
             }
         }
+
+
+
+
+
+
 
         public static bool DeleteStudent(int studentId, out string error)
         {

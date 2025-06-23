@@ -33,6 +33,10 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+
+
+
+
         public long AddSubject(string subjectName, long courseId)
         {
             string insert = "INSERT INTO Subjects (SubjectName, CourseID) VALUES (@sname, @cid)";
@@ -45,6 +49,10 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+
+
+
+
         public void LinkSubjectToCourse(long courseId, long subjectId)
         {
             string link = "INSERT INTO Courses_Subject (CourseID, SubjectID) VALUES (@cid, @sid)";
@@ -56,12 +64,21 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+
+
+
+
+
         public void AddCourseWithSubject(string courseName, string subjectName)
         {
             long courseId = AddOrGetCourse(courseName);
             long subjectId = AddSubject(subjectName, courseId);
             LinkSubjectToCourse(courseId, subjectId);
         }
+
+
+
+
 
         public DataTable GetAllCourses()
         {
@@ -73,6 +90,9 @@ namespace UnicomticManagmentsysytem.Controller
                 return dt;
             }
         }
+
+
+
 
         public DataTable GetCoursesWithSubjects()
         {
@@ -95,6 +115,11 @@ namespace UnicomticManagmentsysytem.Controller
                 return dt;
             }
         }
+
+
+
+
+
         public void UpdateSubject(long subjectId, string newName)
         {
             string query = "UPDATE Subjects SET SubjectName = @name WHERE SubjectID = @id";
@@ -105,6 +130,12 @@ namespace UnicomticManagmentsysytem.Controller
                 cmd.ExecuteNonQuery();
             }
         }
+
+
+
+
+
+
         public void DeleteSubject(long subjectId)
         {
             // Optional: remove from Courses_Subject

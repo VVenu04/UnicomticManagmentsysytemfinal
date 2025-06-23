@@ -94,6 +94,9 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+
+
+
         //  Check if user exists by username
         public static bool UserExists(string username)
         {
@@ -106,6 +109,11 @@ namespace UnicomticManagmentsysytem.Controller
                 return count > 0;
             }
         }
+
+
+
+
+
 
         //  Get all users for DataGridView
         public static DataTable GetAllUsers()
@@ -120,6 +128,10 @@ namespace UnicomticManagmentsysytem.Controller
                 return dt;
             }
         }
+
+
+
+
 
         public static bool AssignSubjectToStudent(int studentId, int subjectId, out string error)
         {
@@ -142,6 +154,14 @@ namespace UnicomticManagmentsysytem.Controller
                 return false;
             }
         }
+
+
+
+
+
+
+
+
         public static int GetStudentIdByUserId(long userId)
         {
             var conn = DatabaseManager.GetConnection();
@@ -154,6 +174,13 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+
+
+
+
+
+
+
         public static int GetLecturerIdByUserId(long userId)
         {
             var conn = DatabaseManager.GetConnection();
@@ -165,6 +192,12 @@ namespace UnicomticManagmentsysytem.Controller
                 return result != null ? Convert.ToInt32(result) : -1;
             }
         }
+
+
+
+
+
+
 
         public static bool AssignSubjectToLecturer(int lecturerId, int subjectId, out string error)
         {
@@ -187,6 +220,16 @@ namespace UnicomticManagmentsysytem.Controller
                 return false;
             }
         }
+
+
+
+
+
+
+
+
+
+
         public static long GetUserIdByUsername(string username)
         {
             var conn = DatabaseManager.GetConnection();
@@ -198,6 +241,13 @@ namespace UnicomticManagmentsysytem.Controller
                 return result != null ? Convert.ToInt64(result) : -1;
             }
         }
+
+
+
+
+
+
+
 
         public static bool DeleteUser(int userId, out string error)
         {

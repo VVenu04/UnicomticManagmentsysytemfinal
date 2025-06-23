@@ -11,6 +11,9 @@ namespace UnicomticManagmentsysytem.Controller
 {
     internal class LecturerController
     {
+
+
+
         public static bool AddLecturerWithUser(string username, string fullName, int age, string address, string nic, string gender, string className, int subjectId, out string error)
         {
             error = "";
@@ -59,6 +62,12 @@ namespace UnicomticManagmentsysytem.Controller
             }
         }
 
+
+
+
+
+
+
         public static DataTable GetSubjects()
         {
             var conn = DatabaseManager.GetConnection();
@@ -70,6 +79,12 @@ namespace UnicomticManagmentsysytem.Controller
                 return dt;
             }
         }
+
+
+
+
+
+
         public static bool UpdateLecturer(int id, string fullName, int age, string address, string nic, string gender, string className, int subjectId, out string error)
         {
             error = "";
@@ -105,6 +120,10 @@ namespace UnicomticManagmentsysytem.Controller
                 return false;
             }
         }
+
+
+
+
 
         public static DataTable GetAllLecturers()
         {

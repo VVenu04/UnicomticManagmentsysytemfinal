@@ -31,6 +31,11 @@ namespace UnicomticManagmentsysytem.Controller
             return dt;
         }
 
+
+
+
+
+
         // Returns DataTable of Students
         public DataTable GetAllStudents()
         {
@@ -50,12 +55,17 @@ namespace UnicomticManagmentsysytem.Controller
             }
             catch (Exception ex)
             {
-                // You can handle the error or log it
+                
                 throw new Exception("Error fetching students: " + ex.Message);
             }
 
             return dt;
         }
+
+
+
+
+
 
         // Insert new mark
         public void AddMark(long studentId, long examId, int score)
@@ -73,6 +83,10 @@ namespace UnicomticManagmentsysytem.Controller
                 cmd.ExecuteNonQuery();
             }
         }
+
+
+
+
 
         // Get all marks with joined details
         public DataTable GetAllMarksWithDetails()
@@ -99,6 +113,15 @@ namespace UnicomticManagmentsysytem.Controller
 
             return dt;
         }
+
+
+
+
+
+
+
+
+
         public void UpdateMark(long markId, long studentId, long examId, int score)
         {
             string update = "UPDATE Marks SET StudentID = @sid, ExamID = @eid, Score = @score WHERE MarkID = @mid";
@@ -115,6 +138,10 @@ namespace UnicomticManagmentsysytem.Controller
                 cmd.ExecuteNonQuery();
             }
         }
+
+
+
+
 
         // Delete mark by MarkID
         public void DeleteMark(long markId)
