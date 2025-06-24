@@ -1,4 +1,4 @@
-# Project Name
+# Unicomtic Managment sysytem 
 
 ## Overview
 This project requires some initial setup to restore necessary packages and rebuild the project. Follow the steps below to set up the environment and run the app.
