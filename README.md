@@ -10,6 +10,10 @@ This project requires some initial setup to restore necessary packages and rebui
 2. Go to the **Tools** menu → **NuGet Package Manager** → **Package Manager Console**.
 3. In the console, run the following command to reinstall all NuGet packages:
 
+~~~
+	Update-Package -reinstall
+~~~
+
 
 
 ### Step 2: Clean & Rebuild the Project in Visual Studio
